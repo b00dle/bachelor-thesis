@@ -1,0 +1,203 @@
+\documentclass[pdftex,12pt,a4paper]{report}
+
+%------------------------------------------------
+%	PACKAGES
+%------------------------------------------------
+
+\usepackage{webis}
+
+\usepackage{ucs}
+
+\usepackage[utf8x]{inputenc}
+
+\usepackage{ngerman}
+
+\usepackage[]{algpseudocode}
+
+\usepackage{algorithm}
+
+%------------------------------------------------
+%	CONFIGURATION FOR COVER PAGE
+%------------------------------------------------
+
+\global\arbeit{Bachelorarbeit}
+
+\global\titel{Mehrbenutzer Multi-Touch-Interaktion mit einem immersiven 3D Bildschirmtisch}
+
+\global\subtitel{}
+
+\global\bearbeiter{Sebastian Stickert}
+
+\global\betreuer{Alexander Kulik, André Kunert}
+
+\global\aufgabensteller{Prof. Dr. Bernd Fröhlich}
+
+\global\abgabetermin{\today} % TODO insert abgabetermin
+
+\global\ort{Weimar} % TODO insert abgabeort
+
+\global\matrikelnummer{110882}
+
+\global\geburtsdatum{21.04.1992}
+
+\global\geburtsort{Rostock}
+
+%------------------------------------------------
+%	START DOCUMENT
+%------------------------------------------------
+
+\begin{document}
+
+
+%------------------------------------------------
+%	COVER PAGE
+%------------------------------------------------
+
+\deckblatt
+
+
+%------------------------------------------------
+%	DECLARATION FOR EXAMINATION OFFICE
+%------------------------------------------------
+
+\erklaerung
+
+
+%------------------------------------------------
+%	ABSTRACT
+%------------------------------------------------
+
+\begin{abstract}
+
+Dieses Dokument dient als Muster für die Ausarbeitung einer Diplomarbeit
+am Lehrstuhl für Webtechnologie und Informationssysteme. 
+1 - 2 - 3 Ümläuttest.
+
+\end{abstract}
+
+
+%------------------------------------------------
+%	TABLE OF CONTENTS
+%------------------------------------------------
+
+\tableofcontents
+
+
+%------------------------------------------------
+%	THESIS CHAPTERS
+%------------------------------------------------
+
+\chapter{Einführung}
+\label{chp:einfuehrung}
+\input{./chapters/einfuehrung}
+
+%------------------------------------------------
+
+\chapter{Finger und Hand Tracking auf Grundlage von Maximally Stable Extremal Regions}
+\label{chp:mser}
+\input{./chapters/mser}
+
+%------------------------------------------------
+
+\chapter{Anforderungsanalyse}
+\label{chp:anforderungsanalyse}
+\input{./chapters/anforderungsanalyse}
+
+%------------------------------------------------
+
+\chapter{3D Interaktion mit Multitoucheingaben}
+\label{chp:interaktion_mit_multitoucheingaben}
+\input{./chapters/interaktion_mit_multitoucheingaben}
+
+%------------------------------------------------
+
+\chapter{Wahrnehmungskonflikte und Lösungsansätze}
+\label{chp:wahrnehmungskonflikte_und_loesungsansaetze}
+\input{./chapters/wahrnehmungskonflikte_und_loesungsansaetze}
+
+%------------------------------------------------
+
+\chapter{Abbildung von Touch Eingaben in der Applikationsstruktur}
+\label{chp:applikationsstruktur}
+\input{./chapters/applikationsstruktur}
+
+%------------------------------------------------
+
+\chapter{Explizite Multi-Touch 3D Interaktion}
+\label{chp:explizite_interaktion}
+\input{./chapters/explizite_interaktion}
+
+%------------------------------------------------
+
+\chapter{Levelling: Implizite Multi-Touch 3D Navigation}
+\label{chp:implizite_navigation}
+\input{./chapters/implizite_navigation}
+
+%------------------------------------------------
+
+\chapter{Wechsel zwischen Interaktionstechniken}
+\label{chp:wechsel_zwischen_interaktionstechniken}
+\input{./chapters/wechsel_zwischen_interaktionstechniken}
+
+%------------------------------------------------
+
+\chapter{Virtuelles Freischneiden der Hand während Berühungseingaben}
+\label{chp:freischneiden}
+\input{./chapters/freischneiden}
+
+%------------------------------------------------
+
+\chapter{Diskussion}
+\label{chp:diskussion}
+\input{./chapters/diskussion}
+
+%------------------------------------------------
+
+\chapter{Fazit}
+\label{chp:fazit}
+\input{./chapters/fazit}
+
+
+%------------------------------------------------
+%	APPENDIX
+%------------------------------------------------
+
+\appendix
+
+%------------------------------------------------
+
+\chapter{Anhang 1}
+
+Im Anhang kann auf Implementierungsaspekte wie Datenbankschemata
+
+oder Programmcode eingegangen werden.
+
+
+%------------------------------------------------
+%	IMAGES APPENDIX
+%------------------------------------------------
+
+\listoffigures
+
+
+%------------------------------------------------
+%	TABLES APPENDIX
+%------------------------------------------------
+
+\listoftables
+
+
+%------------------------------------------------
+%	REFERENCES
+%------------------------------------------------
+
+\bibliographystyle{apalike}    
+
+\bibliography{main_bib}         % verwendet main_bib.bib
+
+
+%------------------------------------------------
+%	END OF DOCUMENT
+%------------------------------------------------
+
+\end{document}
