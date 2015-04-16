@@ -1,16 +1,32 @@
-Hier wird das Kapitel Levelling: Implizite Multi-Touch 3D Navigation beschrieben. Das Kapitel besteht aus den Abschnitten \ref{sec:depth_levelling}, \ref{sec:rotation_levelling} und \ref{sec:vorteile_und_limitierungen_implizit}.
+Kapitel \ref{chp:interaktion_mit_multitoucheingaben} zeigt, dass die gleichzeitige Steuerung aller Freiheitsgrade einer 3D Manipulation durch Multi-Touch Eingaben noch immer eine Herausforderung ist. In Kapitel \ref{chp:explizite_interaktion} werden Lösungsansätze vorgestellt, mit welchen einzelne Freiheitsgrade der Interaktion explizit manipuliert werden können. Ein modulares System zur Koordination dieser Techniken, wäre ein Ansatz mit allen Freiheitsgrade explizit umzugehen. Die Bedienbarkeit eines solchen Systems könnte jedoch leicht komplex werden.
+\\\\
+Wie Anforderung XX vorgibt soll das System für Nutzer, ungeachtet ihres Vorwissens, leicht handhabbar sein. Um diese Anforderung zu unterstützen beschreibt und evaluiert dieses Kapitel eine im Rahmen dieser Arbeit entstandene Navigationstechnik namens Levelling. Hierzu wird in Abschnitt \ref{sec:definition_levelling} eine Definition zu \emph{impliziter} Navigationstechnik, sowie eine Erklärung zum Interaktionsziel von Levelling, gegeben. Im darauf folgenden Abschnitt \ref{sec:depth_levelling} wird die Funktionsweise von Depth-Levelling beschrieben, während in Abschnitt \ref{sec:rotation_levelling} auf den erweiterten Ansatz Rotation-Levelling eingegangen wird. Abschließend wird in Abschnitt \ref{sec:vorteile_und_limitierungen_implizit} Levelling als Navigationstechnik diskutiert.
+
+
+\section{Definition und Interaktionsziele}
+\label{sec:definition_levelling}
+
+Wir definieren implizite Navigationstechniken als zusätzliche Transformationen zur Erreichung eines Interaktionsziels, welche der Anwendung expliziter Techniken beigefügt werden und nicht getrennt von diesen bedienbar sind. 
+\\\\
+Bruder et al. \cite{bruder:2013} beschreibt, dass eine effektive Interaktion mit dreidimensionalen Inhalten vor allem möglich ist, wenn Objekte in null Parallaxe liegen. Levelling ist ein Ansatz zur impliziten Steuerung der Navigation. Ziel der Technik ist es, Applikationsinhalte auf Tischebene zu bewegen. Es wird dabei sowohl die Distanz der Geometrie zur Bildebene verringert, sowie die Orientierung angepasst. Hierzu legt der Nutzer durch berühren des Projektionstisches mit beiden Händen zwei orthogonale Auftreffpunkte auf der Geometrie fest, welche durch die Levelling Technik schrittweise näher an die Bildschirmfläche geführt werden. Da sich beide Punkte auf unterschiedlicher Höhe befinden können, ist außerdem eine Rotation nötig, um beide Punkte auf die Bildebene zu führen. Levelling ist demzufolge ein zweistufiges Verfahren, dessen einzelne Manipulationsschritte durch die von ihnen hervorgerufene Transformation benannt sind. Abbildung XX. zeigt die Auswirkung von Levelling auf eine beispielhafte Visualisierung.
 
 
 \section{Depth-Levelling}
 \label{sec:depth_levelling}
 
-Hier steht Inhalt zu Depth-Levelling.
+Depth-Levelling wird durch das Eingeben zweier Kontaktpunkte auf dem Bildschirm initiiert. Des Weiteren werden zwei zugehörige Referenzpunkte auf der Geometrie benötigt. Der Verbindungsvektor zwischen dem jeweiligen Bildschirmpunkt und seinem Geometriereferenzpunkt steht orthogonal zur Bildebene. Folglich ist der Referenzpunkt leicht durch einen Strahlenschnittest zu ermitteln. Wichtig ist hierbei, negativ parallaxe Modellbereiche nicht zu übersehen. Hierzu muss die z-Koordinate des Startpunkts des Schnittstrahls angehoben werden. 
+\\\\
+Im nächsten Schritt erfolgt die Zuordnung der Referenzpunkte in Primär- und Sekundärpunkt. Der Primärpunkt liegt bereits näher an der Tischebene, oder ist weiter darüber als der Sekundärpunkt. Ziel des Depth-Levellings ist es, den Primärreferenzpunkt durch Translation auf die Projektionsebene zu bringen. Um dies zu erreichen wird das Viewing Setup schrittweise entlang des Richtungsvektors zwischen Primärpunkt und zugehörigem Bildschirmkontaktpunkte verschoben. Die Schrittweite wird hierbei durch einen Faktor festgelegt welcher aus der expliziten Interaktion abgeleitet ist. Ist die Geometrie bereits in relativer Bildschirmnähe, bietet sich die absolute Differenz der Distanz zwischen den Bildschirmkontaktpunkten, seit der letzten Interaktion, an. Andernfalls kann das Verhältnis zwischen diesen Distanzen zur Berechnung der Bewegungsskalierung genutzt werden. Sollte der ermittelte Faktor größer oder gleich der Länge des Richtungsvektors zwischen dem Primärpunkt und dem zugehörigen Kontaktpunkt sein, so wird stattdessen eine Translation um diesen Richtungsvektor angewandt. Ist eben genanntes Kriterium erreicht, so befindet sich der Primärpunkt auf Tischebene und das Depth-Levelling ist beendet.
 
 
 \section{Rotation-Levelling}
 \label{sec:rotation_levelling}
 
-Hier steht Inhalt zu Rotation-Levelling.
+Nach Translation des in Abschnitt \ref{sec:depth_levelling} beschriebenen Primärpunkts auf die Bildebene, erfolgt beim Rotations-Levelling die Heranführung des Sekundärpunkts an die Projektionsebene. Hierzu kann eine Translation nicht genutzt werden, da dies den Primärpunkt ebenfalls transformieren würde. Stattdessen wird eine Rotation um diesen Punkt vorgenommen. Des Weiteren muss eine Skalierung um selbigen Referenzpunkt erfolgen, um zu gewährleisten, dass der Richtungsvektor zwischen Sekundärpunkt und zugehörigem Kontaktpunkt weiterhin senkrecht auf der Bildebene steht. 
+\\\\
+Die Parametrisierung der Rotation bestimmt sich durch eine Folge von einfachen geometrischen Grundoperationen.  Sei $G_2$ der Sekundärpunkt und $K_2$ der zugehörige Kontaktpunkt der Eingabe auf dem Bildschirm, so bestimmt sich $\overline{G_2K_2}$ als Richtungsvektor zwischen $G_2$ und $K_2$. Wie beim Depth-Levelling (siehe Abschnitt \ref{sec:depth_levelling}) wird im ersten Schritt die Distanz $d$ der Annäherung an die Bildebene ermittelt. Danach wird ein Punkt $G_2‘$ berechnet, welcher die Position von $G_2$ nach Verschiebung um $d$ entlang $\overline{G_2K_2}$ beschreibt. Als nächstes werden zwei Vektoren $\overline{K_1G_2}$ und $\overline{K_1G_2‘}$ bestimmt. $\overline{K_1G_2}$ ist hierbei der Richtungsvektor zwischen dem zugehörigen Kontaktpunkt des Primärpunktes $K_1$ und $G_2$. $\overline{K_1G_2‘}$ ist der Richtungsvektor zwischen $K_1$ und $G_2‘$. Nach der Normalisierung von $\overline{K_1G_2}$ und $\overline{K_1G_2‘}$,  ermittelt sich der Rotationswinkel aus dem Arkuskosinus des Skalarprodukts zwischen $\overline{K_1G_2}$ und $\overline{K_1G_2‘}$. Die Rotationsachse wird zuletzt durch das Kreuzprodukt zwischen den beiden Vektoren berechnet.
+\\\\
+Wie bereits erwähnt dient eine Skalierung in Richtung des Primärkontakts zum Erhalt der Orthogonalität zwischen Sekundärpunkt und zugehörigem Kontaktpunkt. Der Skalierungsfaktor ist gegeben durch das Verhältnis zwischen der Länge der Vektoren $\overline{K_1G_2}$ und $\overline{K_1G_2‘}$. Befindet sich der Sekundärpunkt nach Anwendung aller Transformationen auf der Bildebene, so ist das Interaktionsziel erreicht und das Rotations-Levelling beendet.
 
 
 \section{Vorteile und Limitierungen}

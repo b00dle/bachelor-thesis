@@ -1,13 +1,30 @@
-Hier wird das Kapitel Wechsel zwischen Interaktionstechniken beschrieben. Das Kapitel besteht aus den Abschnitten \ref{sec:verhinderung_von_eingabekonflikten} und \ref{sec:interaktionsterritorien}.
+Wie in den Kapiteln \ref{chp:explizite_interaktion} und \ref{chp:implizite_navigation} erläutert wird, können verschiedene implizite und explizite Navigationstechniken verwendet werden um alle Freiheitsgrade der Manipulation eines Viewing Setups in einer virtuellen Szene zu steuern. Durch die Vielzahl dieser unterschiedlichen Formen der Interaktion, ist es wichtig geeignete Kriterien zu definieren, nach denen zwischen den definierten Techniken gewechselt werden kann. 
+\\\\
+In Abschnitt \ref{sec:evaluierung_der_bildschirmkontakte} wird eine implizite Herangehensweise an diese Problematik vorgestellt. Diese bestimmt durch Evaluierung der vom Nutzer platzierten Kontaktpunkte auf dem Bildschirmtisch, welche der Interaktionstechniken für die Touch Navigation genutzt wird. Abschnitt \ref{sec:interaktionsterritorien} zeigt wie durch den Anwender Interaktionsterritorien zur Navigation in einem bestimmten Modus festgelegt werden können. Zuletzt werden in Abschnitt \ref{sec:diskussion_wechsel} beide Ansätze verglichen und auf ihre Stärken und Schwächen untersucht.
 
 
-\section{Verhinderung von Eingabekonflikten}
-\label{sec:verhinderung_von_eingabekonflikten}
 
-Hier steht Inhalt zur Verhinderung von Eingabekonflikten.
+\section{Evaluierung der Bildschirmkontakte}
+\label{sec:evaluierung_der_bildschirmkontakte}
+
+Die in Kapitel \ref{chp:mser} beschriebene zugrunde liegende Touch-Eingabeerkennung gibt Aufschluss über vom Nutzer platzierte Bildschirmkontaktpunkte. Desweiteren ermöglicht Sie die Zuordnung dieser Fingerpositionen zu einzelnen Händen. Obwohl hierbei eine genaue Hand-Nutzer Zuweisung nicht möglich ist, kann die Evaluierung der gegebenen Eingabeinformation bereits effektiv als Kriterium zur Festlegung des Navigationszustands genutzt werden.
+\\\\
+In kollaborativen Anwendungsszenarien, ist gemeinsame Analyse der gebotenen virtuellen Inhalte stark an das Zeigen auf Bereiche der Visualisierung gebunden. Wie in der Anforderungsanalyse (siehe Kapitel \ref{chp:anforderungsanalyse}) vorgestellt, verlieren Nutzer durch Stereoparalaxe leicht die visuelle Wahrnehmung des physischen Bildschirms. In Folge dessen, kann es passieren das Nutzer versehendlich mit einem Finger die Bildschirmoberfläche berühren und damit ungewollt Manipulationen an der Applikation vornehmen. Um diesen Eingabekonflikt zu verhindern, wird die Eingabe einer Hand nur für die Interaktion angewandt, falls der Anwender mehr als einen Finger auf die Bildschirmoberfläche legt. 
+\\\\
+Da für die Berechnung der Manipulationsparameter nur ein Punkt der jeweiligen Hand als Eingabe nötig ist, wird eine Handzentrumsposition ermittelt. Diese wird aus den Positionen aller enthaltenen Finger berechnet. Sie kann wahlweise durch den gemittelten Positionswert aller Kontaktpunkte, oder den Mittelpunkt des fingerumschließenden Rechtecks, definiert sein. Für die Berechnung der Manipulationsparameter wird die relative Translation der gesamten Hand des Nutzers über den Bildschirm auf die jeweiligen Interaktionsmodi übertragen. Hierbei ist zu beachten, dass die berechnete Handzentrumsposition kein fester Punkt auf der Hand des Nutzers ist. Folglich führt das Aufsetzen oder Entfernen von Fingern an der interagierenden Hand ebenfalls zur Verschiebung des Handzentrums. Die Auswirkung dieser Verschiebung auf die Manipulation sollte verhindert werden, da sie zu sprunghaften Veränderungen der Applikation führt. Abbildung XX verdeutlicht diesen Zusammenhang.
+\\\\
+Vergleicht man alle in den Kapiteln \ref{chp:explizite_interaktion} und \ref{chp:implizite_navigation} vorgestellten Interaktionsmodi hinsichtlich ihrer benötigten Kontaktpunkte, so wird deutlich, dass keine der Techniken mehr als zwei  Inputpositionen über die Zeit verfolgt. Eingabekonflikte entstehen häufig, wenn mehrere Anwender gleichzeitig mit dem Bildschirmtisch interagieren wollen. Dieses Problem kann dadurch begrenzt werden, dass nicht mehr als zwei Hände zur Interaktion zugelassen werden. Demzufolge werden genau die beiden Hände zur Eingabe genutzt, welche den Projektionstisch früher berühren. Abbildung XX illustriert die Auswirkung dieser Technik auf ein beispielhaftes Szenario. 
+\\\\
+(PROBLEM FÜR EINE HAND UND EINTREFFENDEN 2. Input in diskussion beleuchten)
+\\\\
+Die beschriebenen Navigationstechniken lassen sich ebenfalls durch Auswertung der Kontaktpunkte modular auswählen. Das Aufsetzen eines einzelnen Fingers wird als Zeigegeste interpretiert und hat somit keine Auswirkung auf die Navigation. 2D Translation ist einhändig bedienbar. Gleiches gilt für die in Abschnitt \ref{sec:3d_rotation} beschriebene 3D Rotation falls die interagierende Hand mehr als einen Finger beinhaltet. Hierbei werden die Handzentrumsposition und der zugehörige Richtungsvektor zum Rotationsreferenzpunkt für die x- und y-Rotation verwendet. Während ein Vektor zwischen zwei Fingern der interagierenden Hand die explizite z-Rotation bestimmt. Letzterer Vektor ließe sich  leicht von 2 beliebigen Fingern der Hand berechnen. Zugunsten der Verständlichkeit der Interaktion und um eine klare Definition für die Wahl des Modus zu gewährleisten, wird der 3D Rotationsmodus ausschließlich bei der Eingabe mit zwei Fingern, bei genau einer Aufgelegten Hand gesteuert. Somit bleiben Dreifinger-, Vierfinger- und Fünffinger-Einhand-Interaktion für die Kontrolle der 2D Translation. Da für die in Kapitel \ref{chp:implizite_navigation} eingeführte implizite Levelling Technik die orthogonale geometrische Lage zwischen Bildschirm- und Geometrieauftreffpunkt gewährleistet werden soll, wird Levelling der expliziten Rotation, Translation und Skalierung im Bildraum beigefügt. Für diesen Modus werden zur Berechnung aller Manipulationsparameter zwei Kontaktpunkte benötigt. Selbiges gilt für die in Abschnitt \ref{sec:3d_translation} vorgestellte 3D Translation. Da letztere Interaktionstechnik jedoch keine Auswirkungen auf Skalierung und Rotation hat, wird ein allgemeiner Translationsmodus definiert. Dieser schließt die Verwendung von einhändiger 2D Translation ein. Setzt ein Nutzer nach einem bestimmten Zeitintervall der Einhand-Interaktion eine zweite Hand auf, wird die  3D-Translation angewandt. Demzufolge wird der Navigationsmodus für Rotation, Translation und Skalierung im Bildraum, zuzüglich Levelling nur betreten, wenn zwei Hände mit zeitlicher Differenz kleiner des bestimmten Zeitintervalls aufgesetzt werden. Ein Zustandsdiagramm (siehe Abbildung XX) verdeutlicht den Umgang mit den Navigationsmodi durch Evaluierung der Bildschirmkontakte.
 
 
 \section{Interaktionsterritorien}
 \label{sec:interaktionsterritorien}
 
 Hier steht Inhalt zu Interaktionsterritorien.
+
+
+\section{Diskussion}
+\label{sec:diskussion_wechsel}

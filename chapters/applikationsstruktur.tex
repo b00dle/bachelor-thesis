@@ -1,22 +1,30 @@
-Hier wird das Kapitel Abbildung von Touch Eingaben in der Applikationsstruktur beschrieben. Das Kapitel besteht aus den Abschnitten \ref{sec:multitouch_input_pipeline}, \ref{sec:representation_im_szenegraph}, \ref{sec:touchwerkzeuge_und_applikationsmanipulatoren} und \ref{sec:diskussion_applikationsstruktur}.
+Hier wird das Kapitel Abbildung von Touch Eingaben in der Applikationsstruktur beschrieben. Das Kapitel besteht aus den Abschnitten \ref{sec:multitouch_input_pipeline}, \ref{sec:representation_im_szenegraph}, \ref{sec:touch_navigation} und \ref{sec:diskussion_applikationsstruktur}.
 
 
-\section{Multitouch-Input Pipeline}
+\section{Multi-Touch Input Pipeline}
 \label{sec:multitouch_input_pipeline}
 
-Hier steht Inhalt zur Multitouch-Input Pipeline.
+Die Verarbeitung von Touch Eingaben erfolgt in drei wesentlichen Schritten, welche in Abbildung XX illustriert werden. Schritt 1 wird einmalig zu Applikationsstart ausgeführt. Hierbei wird für die Maximalanzahl an gleichzeitig erkennbaren Händen jeweils ein Touchwerkzeug angelegt. Touchwerkzeuge sind vom Anwender konfigurierbar und sollen die Verbindung zwischen der taktilen Eingabe und der jeweiligen Auswirkung dieses Inputs in der Applikation herstellen. Jedes Touchwerkzeug verarbeitet den Input genau einer Hand. Des Weiteren verfügt jedes dieser Werkzeuge über verschiedene Geometrien zur Visualisierung der Eingabe. Der Input einer Hand wird als Teil des Touchwerkzeugs in einem Datencontainer gehalten, welcher bei Bedarf in Schritt 2 gefüllt wird.
+\\\\
+Sobald durch den in Abschnitt \ref{chp:mser} beschriebenen MSER Algorithmus Fingerkontaktpunkte ermittelt werden, folgt Schritt 2. An dieser Stelle werden die Daten aus dem TUIO Protokoll Transfer ausgewertet und umstrukturiert. Hierzu werden die angesprochenen Datencontainer gefüllt. Diese identifizieren jede erkannte Hand und enthalten außerdem eine Liste mit Positionen der einzelnen Finger, sowie eine errechnete Handzentrumsposition. Die Handzentrumsposition entspricht dem Mittelpunkt der um alle enthaltenen Finger gespannten Bounding Box.
+\\\\
+Da jeder der in Schritt 2 beschriebenen Datencontainer an ein Touchwerkzeug gebunden ist, erfolgt in Schritt 3 zuletzt die Verknüpfung der Eingabe mit der jeweiligen Auswirkung in der Applikation. Hierzu verfügen Touchwerkzeuge über einen Selektionsmechanismus, welcher basierend auf den vorliegenden Eingabedaten und dem aktuellen Applikationsstatus Kontakt zu einem Applikationsmanipulator herstellt.
+
+
+
+\section{Touch Navigation}
+\label{sec:touch_navigation}
+
+Hier steht Inhalt zu Touchwerkzeugen und Applikationsmanipulatoren.
 
 
 \section{Representation im Szenegraph}
 \label{sec:representation_im_szenegraph}
 
-Hier steht Inhalt zur Representation im Szenegraph.
+Im Gegensatz zu anderen physischen Werkzeugen ist der Multi-Touch Bildschirmtisch kein nutzerspezifisches Eingabegerät. Präzise ausgedrückt handelt es sich vielmehr um ein Mehrbenutzer Display, mit Mehrbenutzer Interaktionsschnittstelle. Demnach ist der Touch Tisch gleichzeitig Darstellungs- sowie Eingabemedium, was für die Modellierung im Szenegraph berücksichtigt werden muss. 
+\\\\
+TODO SCENEGRAPH PLUS ERKLÄRUNG
 
-
-\section{Touchwerkzeuge und Applikationsmanipulatoren}
-\label{sec:touchwerkzeuge_und_applikationsmanipulatoren}
-
-Hier steht Inhalt zu Touchwerkzeugen und Applikationsmanipulatoren.
 
 
 \section{Diskussion}
