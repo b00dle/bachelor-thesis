@@ -1,19 +1,37 @@
-Hier wird das Kapitel Virtuelles Freischneiden der Hand während Berühungseingaben beschrieben. Das Kapitel besteht aus den Abschnitten \ref{sec:ansatz}, \ref{sec:implementierung_freischneiden} und \ref{sec:vorteile_und_limitierungen_freischneiden}.
+Negativ parallaxe Bildausschnitte können wie in Kapitel \ref{chp:wahrnehmungskonflikte_und_loesungsansaetze} beschrieben Wahrnehmungskonflikte hervorrufen, wenn der Nutzer mit der Tischoberfläche interagiert. In den Abschnitten \ref{sec:ansatz_1} und \ref{sec:ansatz_2} wurden verschiedene Konzepte vorgestellt, welche zeigen wie mit diesem Problem umzugehen ist. 
+\\\\
+Diese Techniken umgehen jedoch lediglich den direkten Umgang mit negativ parallaxen Modellen, oder wurden im Kontext der 3D Multi-Touch Interaktion noch nicht umgesetzt. 
+\\\\
+In diesem  Kapitel wird eine im Rahmen dieser Arbeit entstandene Implementierung der See Through Technik, für die Eliminierung von Wahrnehmungskonflikten, vorgestellt. Durch Anwendung der See Through Technik werden die von der Hand des Nutzers verdeckten Areale der Visualisierung, oberhalb der Tischoberfläche, freigeschnitten.
+\\\\
+In Abschnitt \ref{sec:ansatz} wird der theoretische Ansatz vorgestellt. Abschnitt \ref{sec:implementierung_freischneiden} stellt die Integration der See Through Technik in die Applikationsstruktur vor. Zuletzt werden in Abschnitt \ref{sec:vorteile_und_limitierungen_freischneiden} die Vorteile und Limitierungen des Ansatzes aufgeführt.
 
 
 \section{Ansatz}
 \label{sec:ansatz}
 
-Hier steht Inhalt zum Ansatz.
+Wird die Tischoberfläche berührt, so werden negativ parallaxe Modellbereiche zwischen der Eingabeposition und dem Kopf des Nutzers in einem bestimmten Durchmesser ausgeschnitten. Dies erzeugt einen zylinderförmigen Blicktunnel, welcher dem Nutzer freie Sicht bis zu seiner Hand auf der Tischebene bietet. Der Durchmesser des Ausschnittzylinders wird hierbei durch den fingerumschließenden Kreis bestimmt. Abbildung XX illustriert die Anwendung der Technik.
+\\\\
+In einem Mehrbenutzerszenario wird für jeden Nutzer eine eigene Projektion der virtuellen Szene auf dem Bildschirmtisch erstellt. Dies beeinflusst auch die Perspektive auf von Händen verdeckte, negativ parallaxe, Bereiche der Darstellung. Wird für alle um den Tisch versammelten Personen der gleiche Ausschnittzylinder verwendet, kann ausschließlich für einen der Nutzer eine konfliktfreie Wahrnehmung sichergestellt werden. Abbildung XX verdeutlicht diesen Zusammenhang.
+\\\\
+Um Wahrnehmungskonflikte für alle Nutzer vermeiden zu können, muss die Orientierung des Ausschnittzylinders nutzerspezifisch angepasst werden. Infolgedessen wird eine eigene Repräsentation des Zylinders für jeden Nutzer bestimmt und auf die jeweilige Projektion angewandt (siehe Abbildung XX).
 
 
 \section{Implementierung}
 \label{sec:implementierung_freischneiden}
 
-Hier steht Inhalt zur Implementierung.
+Die Anwendung der Show Through Technik kann leicht beim Rendern der Geometriefragmente vorgenommen werden. Hierzu werden alle Eingabepositionen der Hände auf der Tischfläche, sowie der Radius des fingerumschließenden Kreises, in den Fragmentshader der Applikation gegeben. Die Position der Kamera entspricht der Kopfposition des Nutzers und kann somit zur nutzerspezifischen Berechnung der Orientierung des Ausschnittzylinders genutzt werden. Zuletzt werden alle Fragmente, welche innerhalb des Blicktunnels liegen, verworfen.
 
 
 \section{Vorteile und Limitierungen}
 \label{sec:vorteile_und_limitierungen_freischneiden}
 
-Hier steht Inhalt zu Vorteilen und Limitierungen.
+Durch die Anwendung der Show Through Technik können blickabhängig, von der Hand verdeckte, negativ parallaxe Modellausschnitte bei der Projektion der virtuellen Szene ausgeschlossen werden. Hierdurch bleibt die geometrische Relation zwischen realen und virtuellen Inhalte erhalten. Dies führt zu einer wahrnehmungsunterstützenden Visualisierung, welche maßgeblich zur Benutzbarkeit der Toucheingaben beiträgt.
+\\\\
+Die Show Through Technik beeinflusst lediglich die Darstellung der virtuellen Szene. Eine Manipulation der Geometrie, oder des Blickpunktes, wird nicht vorgenommen. Dadurch kann mit der Szene in jeder geometrischen Lage interagiert werden.
+\\\\
+Der Zylinder als Ausschnittgeometrie hat sich in der prototypischen Anwendung als gute Approximation des Nutzerarmes erwiesen. Es ist damit möglich den Großteil verdeckter, negativ parallaxer Modellausschnitte, von der Darstellung auszuschließen.
+\\\\
+Die Ausschnittgeometrie umschließt jedoch ein Volumen, welches nicht exakt die Gliedmaßen des Nutzers repräsentiert. Infolgedessen können Bereiche der Visualisierung beschnitten werden, welche nicht vom Nutzer verdeckt werden und daher noch sichtbar sein sollten. Des Weiteren entspricht die Form und Orientierung der Ausschnittgeometrie nicht der komplexen Form des Arms eines Nutzers. Bei bestimmten Eingaben können somit nicht alle durch Negativparallaxe hervorgerufenen Wahrnehmungskonflikte vermieden werden (siehe Abbildung XX).
+\\\\
+Die Initiierung der Show Through Technik wird durch das Berühren der Bildschirmoberfläche initiiert. Aus diesem Grund kann das Hineingreifen in Inhalte oberhalb dieser Ebene, ohne Interaktion mit der Tischfläche, nicht verhindert werden.
