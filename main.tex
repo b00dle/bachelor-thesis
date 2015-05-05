@@ -18,6 +18,9 @@
 
 \usepackage{algorithm}
 
+% Anforderungscounter
+\newtheorem{anforderung}{Anforderung}[section]
+
 %------------------------------------------------
 %	CONFIGURATION FOR COVER PAGE
 %------------------------------------------------
@@ -32,7 +35,9 @@
 
 \global\betreuer{Alexander Kulik, André Kunert}
 
-\global\aufgabensteller{Prof. Dr. Bernd Fröhlich}
+\global\erstgutachter{Prof. Dr. Bernd Fröhlich}
+
+\global\zweitgutachter{Junior-Prof. Dr. Florian Echtler}
 
 \global\abgabetermin{\today} % TODO insert abgabetermin
 
@@ -95,15 +100,15 @@ am Lehrstuhl für Webtechnologie und Informationssysteme.
 
 %------------------------------------------------
 
-\chapter{Finger und Hand Tracking auf Grundlage von Maximally Stable Extremal Regions}
-\label{chp:mser}
-\input{./chapters/mser}
-
-%------------------------------------------------
-
 \chapter{Anforderungsanalyse}
 \label{chp:anforderungsanalyse}
 \input{./chapters/anforderungsanalyse}
+
+%------------------------------------------------
+
+\chapter{Finger und Hand Tracking auf Grundlage von Maximally Stable Extremal Regions}
+\label{chp:mser}
+\input{./chapters/mser}
 
 %------------------------------------------------
 
@@ -137,15 +142,15 @@ am Lehrstuhl für Webtechnologie und Informationssysteme.
 
 %------------------------------------------------
 
-\chapter{Abbildung von Touch Eingaben in der Applikationsstruktur}
-\label{chp:applikationsstruktur}
-\input{./chapters/applikationsstruktur}
-
-%------------------------------------------------
-
 \chapter{Virtuelles Freischneiden der Hand während Berühungseingaben}
 \label{chp:freischneiden}
 \input{./chapters/freischneiden}
+
+%------------------------------------------------
+
+\chapter{Abbildung von Multi-Touch Techniken in der Applikationsstruktur}
+\label{chp:applikationsstruktur}
+\input{./chapters/applikationsstruktur}
 
 %------------------------------------------------
 

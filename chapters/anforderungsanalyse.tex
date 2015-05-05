@@ -1,42 +1,72 @@
-Hier wird das Kapitel Anforderungsanalyse beschrieben. Das Kapitel besteht aus den Abschnitten \ref{sec:mehrbenutzer_touch_eingaben}, \ref{sec:tiefenwahrnehmung}, \ref{sec:interaktionsziele}, \ref{sec:kontrolle_der_freiheitsgrade} und \ref{sec:visuelle_rueckmeldung}.
+Zur Erreichung des in Abschnitt \ref{sec:ziel_der_arbeit} beschriebenen Ziels der Arbeit wurden einige Anforderungen definiert. Jene Eckpfeiler der Entwicklung sollen in diesem Kapitel näher beleuchtet werden. 
+\\\\
+Abschnitt \ref{sec:mehrbenutzer_touch_eingaben} geht hierbei auf die Benutzung des Systems durch mehrere Nutzer ein. Des Weiteren wird in Abschnitt \ref{sec:tiefenwahrnehmung} der Umgang mit Inhalten in Stereoparallaxe analysiert.  Abschnitt \ref{sec:interaktionsziele} bezieht die Interaktionsziele bei der Nutzung des Systems in die Betrachtung ein. Durch Abschnitt \ref{sec:kontrolle_der_freiheitsgrade} soll die Kontrolle der bei der Manipulation involvierten Freiheitsgrade an verschiedene Anforderungen gebunden werden. Zuletzt wird in Abschnitt \ref{sec:visuelle_rueckmeldung} die Relevanz visueller Rückmeldung bei der Interaktion fokussiert. 
 
 
 \section{Mehrbenutzer Touch-Eingaben}
 \label{sec:mehrbenutzer_touch_eingaben}
 
-Anforderung: Fehleingaben durch gleichzeitiges Interagieren verschiedener Nutzer mit dem Bildschirmtisch sollten vermieden werden.
-\\\\
-Die meisten Interaktionswerkzeuge können von nicht mehr als einem Nutzer bedient werden. Selbst wenn die Auswirkung der Manipulation die ganze Gruppe betrifft, so obliegt der Umgang mit dem Werkzeug einer Person. Im Gegensatz dazu, steht der Projektionstisch allen Nutzern gleichermaßen zur Verfügung. Da eine Vielzahl verschiedener Fingerpositionen auf dem Touchtisch registriert werden kann, besteht folglich die Möglichkeit, dass der Tisch zur gleichen Zeit von mehreren Personen Eingaben erhält. Diese Eingabekombinationen können leicht zu Manipulationen der Applikation führen, welche vom Nutzer nicht beabsichtigt waren und somit vermieden werden sollten.
-\\\\
-Abbildung XX zeigt ein konkretes Anwendungsszenario. Hier versammeln sich eine bestimmte Anzahl Nutzer um gemeinsam Eigenschaften einer virtuellen Welt zu untersuchen. Während ein Nutzer beidhändig eine Interaktionsgeste ausführt, setzt ein anderer Nutzer seine Hand auf einen markanten Inhalt der Szene. Dabei berührt er ebenfalls die Tischfläche. In diesem Fall sollte sichergestellt sein, dass das System die Semantik der Touchpunkte erkennt und eine sinnvolle Entscheidung bezogen auf die abgeleitete Interaktion trifft. 
+	\begin{anforderung}
+	\label{req:mehrbenutzer}
+		Fehleingaben durch gleichzeitiges Interagieren verschiedener Nutzer mit dem Bildschirmtisch sollten vermieden werden.
+	\end{anforderung}
+
+Die meisten physischen Interaktionswerkzeuge können von nicht mehr als einem Nutzer bedient werden.  Selbst wenn die Auswirkung der Manipulation die ganze Gruppe betrifft, so obliegt der Umgang mit dem Werkzeug einer Person. Im Gegensatz dazu, steht der Projektionstisch allen Nutzern gleichermaßen zur Verfügung. Da eine Vielzahl verschiedener Fingerpositionen auf dem Touchtisch registriert werden können besteht die Möglichkeit, dass der Tisch zur gleichen Zeit von mehreren Personen Eingaben erhält. Diese Eingabekombinationen können leicht zu Manipulationen der Applikation führen, welche vom einzelnen Nutzer nicht beabsichtigt waren und somit vermieden werden sollten.
 
 
 \section{Tiefenwahrnehmung durch Stereo- und Bewegungsparalaxe}
 \label{sec:tiefenwahrnehmung}
 
-Anforderung: Konflikten der Tiefenwahrnehmung durch Berührung negativ paralaxer Bildareale sollte entgegen gewirkt werden.
-\\\\
-Anforderung: Die Interaktion mit positiv und negativ paralaxen Objekten sollte nicht durch Bewegungsparalaxe erschwert werden. 
+	\begin{anforderung}
+	\label{req:wahrnehmungskonflikte}
+		Konflikten der Tiefenwahrnehmung durch Berührung negativ-parallaxer Bildareale sollte entgegen gewirkt werden.
+	\end{anforderung}
+
+Durch Stereoskopische Rendering Verfahren wird die Illusion der dreidimensionalen Lage virtueller Objekte vermittelt. Während die Projektion an eine zweidimensionale Bildebene gebunden ist, erscheinen Applikationsinhalte oftmals abseits der Bildebene. Abschnitt \ref{sec:related_touch_interaktion_stereo} beschriebt einige Konflikte der Tiefenwahrnehmung, die bei der taktilen Interaktion mit stereoskopisch visualisierten Modellen entstehen können. Es gilt geeignete Techniken zu finden, welche dem Nutzer dennoch ein immersives virtuelles Erlebnis gewährleisten.
 
 
 \section{Interaktionsziele}
 \label{sec:interaktionsziele}
 
-Anforderung: Manipulationen der Applikation, sollten basierend auf dem Interaktionsziel des Nutzers bestimmt werden.
+	\begin{anforderung}
+	\label{req:interaktionsziele}
+		Manipulationen der Applikation sollen basierend auf den Interaktionszielen der Nutzer bestimmt werden.
+	\end{anforderung}
+
+Interaktionsziele variieren anhand des Szenarios der Anwendung. Das System wurde vor dem Hintergrund des EU Forschungsprojekts 3D-Pitoti entwickelt. Es soll demnach die interaktive Exploration eines 3D gescannten Tals unterstützen. In diesem Kontext gilt es geeignete Navigationstechniken abzuleiten, welche dem Nutzer die Betrachtung aller dargebotenen Detailstufen des Modells ermöglichen.
 
 
 \section{Explizite und implizite Kontrolle der involvierten Freiheitsgrade}
 \label{sec:kontrolle_der_freiheitsgrade}
 
-Anforderung: Das System sollte auch für unerfahrene Nutzer leicht benutzbar sein.
-\\\\
-Anforderung: Es sollte dem Nutzer möglich sein, alle für das jeweilige Interaktionsziel erforderlichen Freiheitsgrade getrennt voneinander zu bedienen.
-\\\\
-Anforderung: implizite kontrolle????
+	\begin{anforderung}
+	\label{req:intuitiv_benutzbar}
+		Das System soll auch für unerfahrene Nutzer leicht benutzbar sein.
+	\end{anforderung}
 
+Der zweidimensionale Interaktionsraum für Berührungseingaben gegenüber dem dreidimensionalen Applikationsraum unterdefiniert. Dieser Zusammenhang äußert sich in den Freiheitsgraden, welche für die verfügbaren Transformationen parametrisiert werden müssen. Demnach ist beispielsweise die Translation im zweidimensionalen Raum durch x- und y-Verschiebung definiert. Im dreidimensionalen Raum hingegen kommt die z-Komponente als Freiheitsgrad hinzu. Die Bewegung eines Punktes im zweidimensionalen Raum kann somit lediglich zwei der drei Freiheitsgrade der 3D Translation variabel parametrisieren. Die Unterbestimmung kann im Kontext der Berührungseingabe durch zusätzliche Kontaktpunkte gelöst werden. Hierdurch wird die Komplexität resultierender Gesten verglichen zu bekannten 2D Touch Techniken gesteigert. Nach Anforderung \ref{req:intuitiv_benutzbar} sollte jedoch auch dem ungeübten Nutzer ein Umgang mit dem System nach kurzer Einarbeitung möglich sein.
+
+	\begin{anforderung}
+	\label{req:getrennte_bedienung_der_dof}
+		Es soll dem Nutzer möglich sein alle für das jeweilige Interaktionsziel erforderlichen Freiheitsgrade getrennt voneinander zu bedienen.
+	\end{anforderung}
+
+Für die Detailbetrachtung der durch die Visualisierung dargebotenen Inhalte, ist eine präzise Kontrolle einzelner Parameter bei der Transformation unerlässlich. Das System sollte deshalb nicht nur Modi zur Kontrolle aller Freiheitsgrade bereitstellen, sondern auch die unabhängige Kontrolle einzelner ermöglichen.
+
+	\begin{anforderung}
+	\label{req:implizite_kontrolle}
+		Der Nutzer soll bei der Erreichung von Interaktionszielen implizit vom System unterstützt werden.
+	\end{anforderung}
+
+Wie in Anforderung \ref{req:intuitiv_benutzbar} beschrieben, soll das System einer intuitiven Bedienung unterliegen. Hierzu gilt es Techniken zu entwickeln, welche durch den Nutzer gesteuerte Manipulationsvorgänge sinnvoll erweitern. Diese Ansätze sollen die ausgearbeiteten Interaktionsziele berücksichtigen und automatisch zur Erreichung dieser beitragen.
 
 
 \section{Visuelle Rückmeldung}
 \label{sec:visuelle_rueckmeldung}
 
-Anforderung: Der Umgang mit der Schnittstelle sollte mit visuellem Output unterstützt werden
+	\begin{anforderung}
+	\label{req:visueller_output}
+		Der Umgang mit der Multi-Touch Navigation soll mit visuellem Output unterstützt werden.
+	\end{anforderung}
+
+Durch einen hohen Grad der Immersion virtueller Umgebungen, verschwimmt der Bezug zu physikalischen Gegebenheiten im Arbeitsbereich. Stereoskopische Visualisierung verstärkt diesen Zusammenhang. Demnach wird beispielsweise die Sichtbarkeit der Projektionsfläche erschwert. Da diese als gleichzeitiges Eingabegerät essentiell für den Umgang mit der Anwendung ist, kann visuelle Rückmeldung helfen die Benutzung des Systems zu erleichtern. Hierzu sollen effektive Visualisierungen für Interaktionsvorgänge angeboten werden, um diese verständlich zu machen und eine leichte Eingewöhnung in die Applikation zu ermöglichen.

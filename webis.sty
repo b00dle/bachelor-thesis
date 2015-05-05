@@ -70,7 +70,8 @@
 \newtoks\subtitel           % Untertitle der Arbeit
 \newtoks\bearbeiter         % Name des Bearbeiters
 \newtoks\betreuer           % Name des Betreuers
-\newtoks\aufgabensteller    % Name des Aufgabenstellers
+\newtoks\erstgutachter		% Name des 1. Gutachters
+\newtoks\zweitgutachter		% Name des 2. Gutachters
 \newtoks\abgabetermin       % Datum der Abgabe
 \newtoks\ort                % Wohnort des Bearbeiters
 \newtoks\matrikelnummer     % Matrikelnummer des Bearbeiters
@@ -96,7 +97,7 @@
       \vspace{0.5cm}\large
       \the\subtitel
 
-      \vspace{3cm}\huge
+      \vspace{2cm}\huge
       \the\arbeit
     \end{center}
       \vspace{\fill}\normalsize
@@ -108,8 +109,10 @@
         & \\
         & \\
         & \\
-        1. Gutachter: \the\aufgabensteller & \\
-        Betreuer: \the\betreuer & \\
+        1. Gutachter: \the\erstgutachter & \\
+        2. Gutachter: \the\zweitgutachter & \\
+        & \\
+        %Betreuer: \the\betreuer & \\
         & \\
         & \\
         & \\
