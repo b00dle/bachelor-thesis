@@ -12,7 +12,15 @@ Die x- und y-Translation, uniforme Skalierung, sowie z-Rotation mit zwei Fingern
 \\\\
 In dreidimensionalen Szenen wird die Translation um die z-Komponente erweitert. Hancock et al. nutzen für die Visualisierung der virtuellen Szene eine zweidimensionale Darstellung. Durch die perspektivische Verzerrung wächst der projizierte Abstand zweier Punkte auf einem Objekt, je mehr sich die Geometrie der Projektionsebene nähert. Sticky Tools simulieren den physikalischen Umgang mit nicht-elastischen Objekten. Aus diesem Grund wird auf eine Geste zur Skalierung verzichtet. Folglich wird die 2D Skalierungsgeste zur z-Translation eines Objekts genutzt.
 \\\\
-Neben der Rotation um die Hochachse ermöglicht die Manipulation in dreidimensionalen Szenen das Drehen von Objekten um Achsen auf der Bildfläche. Hancock et al. definieren letztere als \emph{flip}-Rotation. Um das Sticky Fingers Kriterium zu erhalten, wird diese Art der Rotation durch beidhändige Interaktion gesteuert. Hierbei werden durch das Aufsetzen zweier Finger einer Hand die direkten Kontaktpunkte auf der Geometrie festgelegt. Diese spannen einen Richtungsvektor auf, welcher die Rotationsachse definiert. Die Bewegung eines aufgesetzten Fingers der zweiten Hand im rechten Winkel zur Rotationsachse, legt den Grad der Flip-Rotation, sowie die Richtung der Drehung fest (siehe Abbildung XX).
+Neben der Rotation um die Hochachse ermöglicht die Manipulation in dreidimensionalen Szenen das Drehen von Objekten um Achsen auf der Bildfläche. Hancock et al. definieren letztere als \emph{flip}-Rotation. Um das Sticky Fingers Kriterium zu erhalten, wird diese Art der Rotation durch beidhändige Interaktion gesteuert. Hierbei werden durch das Aufsetzen zweier Finger einer Hand die direkten Kontaktpunkte auf der Geometrie festgelegt. Diese spannen einen Richtungsvektor auf, welcher die Rotationsachse definiert. Die Bewegung eines aufgesetzten Fingers der zweiten Hand im rechten Winkel zur Rotationsachse, legt den Grad der Flip-Rotation, sowie die Richtung der Drehung fest (siehe Abbildung \ref{fig:opposable_thumbs}).
+
+\begin{figure}
+	\begin{center}
+		\includegraphics[width=12cm]{img/opposable_thumbs.pdf}
+	\end{center}
+	\caption{Durchführung der Opposable Thumbs Rotation im von Hancock et al. entwickelten System Sticky Tools \cite{hancock:2009}. Screenshots sind dem zugehörigen Video entnommen und durch eigene Visualisierungen erweitert worden \cite{hancock:2009:vid}.}
+	\label{fig:opposable_thumbs}
+\end{figure}
 
 
 \section{Balloon Selection}
@@ -28,7 +36,15 @@ Bei der Anwendung dieser Idee für die Selektion, wird eine Kugel als Selektions
 
 Rousset et al. beschreiben eine Erweiterung von Scheurich und Stuerzlingers \emph{Two Axis Valuator} (im Folgenden TAV genannt) \cite{scheurich:2013,rousset:2014}. Der von Elisabeth Rousset et al. entwickelte TAV+ ist ein Modus zur einhändigen 3D Rotation durch die Verwendung von zwei Fingern. 
 \\\\
-Für die Bestimmung der Rotation entlang einer beliebigen Achse auf der Bildebene, wird die Bewegung der Zentrumsposition zwischen den aufgesetzten Fingern verfolgt. Die Rotation wird hierbei um die Achse, welche rechtwinklig zur Bewegungsrichtung steht und ebenfalls in der Bildebene liegt, durchgeführt. Als Rotationszentrum dient der Schwerpunkt des zu manipulierenden Objekts. Drehrichtung und Rotationsgrad werden von der Distanz und Richtung der Translation des Fingerzentrums abgeleitet (siehe Abbildung XX.1). Zusätzlich kann die Rotation um die Achse zwischen Fingerzentrum und Rotationszentrum kontrolliert werden. Dies ist durch Orientierungsänderung des Vektors zwischen den Fingern möglich. Der verwendete Winkel, entspricht dem zwischen dem Vektor, vor der Bewegung und demselben danach (siehe Abbildung XX.2). Abbildung XX illustriert das Verfahren.
+Für die Bestimmung der Rotation entlang einer beliebigen Achse auf der Bildebene, wird die Bewegung der Zentrumsposition zwischen den aufgesetzten Fingern verfolgt. Die Rotation wird hierbei um die Achse, welche rechtwinklig zur Bewegungsrichtung steht und ebenfalls in der Bildebene liegt, durchgeführt. Als Rotationszentrum dient der Schwerpunkt des zu manipulierenden Objekts. Drehrichtung und Rotationsgrad werden von der Distanz und Richtung der Translation des Fingerzentrums abgeleitet. Zusätzlich kann die Rotation um die Achse zwischen Fingerzentrum und Rotationszentrum kontrolliert werden. Dies ist durch Orientierungsänderung des Vektors zwischen den Fingern möglich. Der verwendete Winkel, entspricht dem zwischen dem Vektor, vor der Bewegung und demselben danach. Abbildung \ref{fig:tav_plus} illustriert das Verfahren.
+
+\begin{figure}
+	\begin{center}
+		\includegraphics[width=10cm]{img/tav_plus.pdf}
+	\end{center}
+	\caption{Berechnung der dreidimensionalen Rotation TAV+ nach Rousset et al. \cite{rousset:2014}. Hierbei sind $A_i$ und $B_i$ die zwei zur Interaktion verwendeten Finger. $C_i$ ergibt sich als die Zenntrumsposition zwischen $A_i$ und $B_i$. $\alpha$ und $\beta$ sind die durch das Verfahren ermittelten Rotationswinkel. Diese Abbildung entstammt vollständig einer Veröffentlichung von Rousset et al \cite{rousset:2014}.}
+	\label{fig:tav_plus}
+\end{figure}
 
 
 \section{Diskussion}

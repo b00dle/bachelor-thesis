@@ -10,16 +10,40 @@ Abschnitt \ref{sec:related_frame_cancellation} führt hierzu in die Thematik \em
 \\\\
 Wartell beschreibt eine durch \emph{Frame Cancellation} entstehende schwache Tiefenwahrnehmung der Szene \cite{wartell:2001}. Nach Lipton resultiert außerdem ein unangenehmer visueller Eindruck, durch die Schwierigkeit die Bilder der beiden Augen zu vereinigen \cite{lipton:2007}. 
 \\\\
-Zum Umgang mit diesem Problem, schlägt Autodesk die Verwendung von \emph{Black Bands} vor \cite{autodesk:2008}. Nach diesem Ansatz werden an den äußeren Begrenzungen des Bildes, der jeweiligen Augen schwarze Balken eingeschoben. Abbildung XX. zeigt, dass ohne Anwendung der Technik im Bild des rechten Auges ein kleinerer Ausschnitt der Geometrie zu sehen ist als im rechten. Dieser fehlende Ausschnitt im Bild des linken Auges führt zum beschriebenen Konflikt. Durch Einschieben der \emph{Black Bands} soll die konfliktfreie Verschmelzung der von beiden Augen wahrgenommenen Bilder ermöglicht werden. 
-\\\\
-Ardouin et al. schlagen die Verwendung von Clipping zur Begrenzung des Blick Frustums vor \cite{ardouin:2011}. Abbildung XX. zeigt ein einfaches Stereo-Viewing-Setup. Der dargestellte Schnittbereich der Frusta beider Augen wird nach Ardouin \emph{Stereo Compatible Volume} genannt \cite{ardouin:2011}. In diesem Bereich sei eine konfliktfreie Visualisierung negativ-Parallaxer Szeneninhalte sicher. Das Abschneiden der Geometrie außerhalb des Stereo Compatible Volumes (nach Ardouin \emph{Stereo Compatible Volume Clipping}) würde demnach \emph{Frame Cancellation} vermeiden.
+Zum Umgang mit diesem Problem, schlägt Autodesk die Verwendung von \emph{Black Bands} vor \cite{autodesk:2008}. Nach diesem Ansatz werden an den äußeren Begrenzungen des Bildes, der jeweiligen Augen schwarze Balken eingeschoben. Abbildung \ref{fig:black_bands} zeigt, dass ohne Anwendung der Technik im Bild des rechten Auges ein kleinerer Ausschnitt der Geometrie zu sehen ist als im rechten. Dieser fehlende Ausschnitt im Bild des linken Auges führt zum beschriebenen Konflikt. Durch Einschieben der \emph{Black Bands} soll die konfliktfreie Verschmelzung der von beiden Augen wahrgenommenen Bilder ermöglicht werden. 
+
+\begin{figure}
+	\begin{center}
+		\includegraphics[width=10cm]{img/black_bands.pdf}
+	\end{center}
+	\caption{Die oberen Abbildungen zeigen die Bildausschnitte der Augen vor Anwendung der \emph{Black-Bands} Technik nach Autodesk \cite{autodesk:2008}. In den darunter liegenden Abschnitten ist die Veränderung dieser nach der Verwendung des Ansatzes zu sehen. Diese Abbildung entstammt vollständig einer Veröffentlichung von Autodesk \cite{autodesk:2008}.}
+	\label{fig:black_bands}
+\end{figure}
+
+Ardouin et al. schlagen die Verwendung von Clipping zur Begrenzung des Blick Frustums vor \cite{ardouin:2011}. Der Schnittbereich der Frusta beider Augen wird nach Ardouin \emph{Stereo Compatible Volume} genannt \cite{ardouin:2011}. In diesem Bereich sei eine konfliktfreie Visualisierung negativ-parallaxer Szeneninhalte sicher. Das Abschneiden der Geometrie außerhalb des Stereo Compatible Volumes (nach Ardouin \emph{Stereo Compatible Volume Clipping}) würde demnach \emph{Frame Cancellation} vermeiden. Abbildung \ref{fig:scvc} zeigt eine Gegenüberstellung der Technik von Ardouin et al. mit \emph{Black-Bands}.
+
+\begin{figure}
+	\begin{center}
+		\includegraphics[width=8cm]{img/black_bands_and_SCVC.pdf}
+	\end{center}
+	\caption{Gegenüberstellung der Techniken \emph{Stereo Compatible Volume Clipping} nach Ardouin et al \cite{ardouin:2011} und \emph{Black-Bands} nach Autodesk \cite{autodesk:2008}. Zum Vergleich wird eine unveränderte Darstellung der Bildausschnitte gezeigt. Diese Abbildung entstammt vollständig einer Veröffentlichung von Ardouin \cite{ardouin:2011}.}
+	\label{fig:scvc}
+\end{figure}
 
 
 \section{Touch Interaktion mit stereoskopischen Visualisierungen}
 \label{sec:related_touch_interaktion_stereo}
 
-Bei der Touch Interaktion ist die Selektion und Manipulation von virtuellen Objekten auf und abseits der Projektionsebene ausschließlich durch Eingaben auf der Tischebene zu erreichen. Valkov et al. beschreiben eine Wahrnehmungsdiskrepanz die sich daraus ableitet \cite{valkov:2011}. Demnach ist die Wahl des Fokuspunktes für die Beobachtung des Interaktionsvorgangs doppeldeutig. Ein Objekt in Negativ- Parallaxe liegt oberhalb der Tischebene, sodass bei Fokussierung von selbigem die Blickrichtung der beiden Augen über der Projektionsfläche konvergiert. Die Wahrnehmung der interagierenden Hand auf dem Bildschirm würde folglich verschwimmen. Umgekehrt würde die Wahrnehmung des parallaxen Inhalts bei Fokussierung der Hand verschwimmen. Abbildung XX verdeutlicht diesen Zusammenhang. 
-\\\\
+Bei der Touch Interaktion ist die Selektion und Manipulation von virtuellen Objekten auf und abseits der Projektionsebene ausschließlich durch Eingaben auf der Tischebene zu erreichen. Daraus leitet sich eine Wahrnehmungsdiskrepanz ab \cite{valkov:2011,bruder:2013}. Demnach ist die Wahl des Fokuspunktes für die Beobachtung des Interaktionsvorgangs doppeldeutig. Ein Objekt in Negativ- Parallaxe liegt oberhalb der Tischebene, sodass bei Fokussierung von selbigem die Blickrichtung der beiden Augen über der Projektionsfläche konvergiert. Die Wahrnehmung der interagierenden Hand auf dem Bildschirm würde folglich verschwimmen. Umgekehrt würde die Wahrnehmung des parallaxen Inhalts bei Fokussierung der Hand verschwimmen. Abbildung \ref{fig:fokussierung} verdeutlicht diesen Zusammenhang.
+
+\begin{figure}
+	\begin{center}
+		\includegraphics[width=12cm]{img/fokussierung.pdf}
+	\end{center}
+	\caption{Wahrnehmungsdiskrepanz durch die Wahl des Fokuspunkts. Diese Abbildung entstammt vollständig einer Veröffentlichung von Bruder et al. \cite{bruder:2013}.}
+	\label{fig:fokussierung}
+\end{figure}
+
 Giesler et al. entwickeln mit ihrer Technik \emph{Void Shadows} einen Ansatz um die Touch Selektion von nicht auf der Bildfläche liegenden Objekten zu erleichtern \cite{giesler:2014}. Hierzu wird eine zweidimensionale Repräsentation aller Geometrie als Schatten auf die Bildebene projiziert. Berührungen eines Schattens werden auf die jeweilig referenzierte Geometrie übertragen.
 \\\\
 Ein weiteres Problem ergibt sich durch das Eindringen der Hand in über dem Tisch liegende Geometrie. Berührt der Anwender die Tischebene zur Interaktion, durchstößt er dabei die auf dem Pfad der Bewegung liegenden negativ-parallaxen Objekte. Während dem Nutzer durch die Disparität der Darstellung eine geometrische Lage der Inhalte oberhalb der Hand suggeriert wird, bleiben diese verdeckt bis die Hand des Nutzers die Eingabefläche verlässt. Folglich wird die Tiefenwahrnehmung durch die widersprüchliche Lage des projizierten Inhalts in Relation zur Hand des Nutzers gestört. Hierdurch wird der visuelle Eindruck wie bei \emph{Frame Cancellation} (siehe Abschnitt \ref{sec:related_frame_cancellation})  beeinflusst.

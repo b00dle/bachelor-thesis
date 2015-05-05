@@ -28,8 +28,17 @@ Wie in Abbildung XX. zu erkennen, kreieren Objekte in naher Distanz zum Bildschi
 \section{Technische Voraussetzungen}
 \label{sec:technische_voraussetzungen}
 
-Für die technische Umsetzung des in Abschnitt \ref{sec:maximally_stable_extremal_regions} beschriebenen MSER Systems im Kontext der Multi-Touch Erkennung wird in unserem Labor ein rückseitiges, diffuses Infrarotbeleuchtungssetup genutzt. Hierbei wird eine diffuse Infrarot emittierende Lichtquelle unterhalb des Bildschirmtisches angebracht. Ein Spiegel lenkt das Licht senkrecht auf eine matte und lichtdurchlässige Projektionsfläche. Das von dieser Ebene reflektierte Licht wird durch den Spiegel gelenkt und von einer Infrarotkamera zur weiteren Verarbeitung aufgenommen. Abbildung XX visualisiert das beschriebene Setup.
-\\\\
+Für die technische Umsetzung des in Abschnitt \ref{sec:maximally_stable_extremal_regions} beschriebenen MSER Systems im Kontext der Multi-Touch Erkennung wird in unserem Labor ein rückseitiges, diffuses Infrarotbeleuchtungssetup genutzt. Hierbei wird eine diffuse Infrarot emittierende Lichtquelle unterhalb des Bildschirmtisches angebracht. Ein Spiegel lenkt das Licht senkrecht auf eine matte und lichtdurchlässige Projektionsfläche. Das von dieser Ebene reflektierte Licht wird durch den Spiegel gelenkt und von einer Infrarotkamera zur weiteren Verarbeitung aufgenommen. Abbildung \ref{fig:table_setup} visualisiert das beschriebene Setup.
+
+\begin{figure}
+	\begin{center}
+		\includegraphics[width=8cm]{img/table_setup.pdf}
+	\end{center}
+	\caption{Das im Labor verwendete Hardware Setup zum Tracking von Touch Eingaben.}
+	\label{fig:table_setup}
+\end{figure}
+
+
 Die Genauigkeit des Systems kann durch infrarotes Umgebungslicht, wie beispielsweise Anteile der Sonnenstrahlung, oder andere im Arbeitsraum befindliche Trackingsysteme, gestört werden. Ewerling et al. schlagen daher eine hochfrequente Modulation der Beleuchtung nach Moeller und Kerne vor \cite{ewerling:2012, moeller:2012}.  Nicht-uniforme Lichtintensität entlang der Tischfläche kann ebenfalls zu Problemen bei der Bildanalyse führen. Diese können zwar durch Filterverfahren abgeschwächt, jedoch nicht vollständig beseitigt werden. Eine gleichmäßige Ausleuchtung der Projektionsebene ist demnach ausschlaggebend für eine akkurate Evaluation der Kamerabilder.
 
 

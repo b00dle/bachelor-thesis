@@ -18,8 +18,18 @@
 
 \usepackage{algorithm}
 
+\usepackage{hyperref}
+
+\usepackage{url}
+
+\usepackage[font=small,labelfont=bf,width=12cm]{caption}
+
+\usepackage{chngcntr}
+\counterwithout{figure}{chapter} 
+
 % Anforderungscounter
 \newtheorem{anforderung}{Anforderung}[section]
+\counterwithout{anforderung}{section}
 
 %------------------------------------------------
 %	CONFIGURATION FOR COVER PAGE
