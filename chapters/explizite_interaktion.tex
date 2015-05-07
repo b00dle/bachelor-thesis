@@ -38,7 +38,7 @@ Für die Rotation dienen ebenfalls die Vektoren $V$ und $V‘$ zur Berechnung. A
 \section{3D Translation}
 \label{sec:3d_translation}
 
-Die 3D Translation ist ein von den Erkenntnissen der Balloon Selection nach Benko und Feiner \cite{benko:2007} abgeleiteter Ansatz. Durch Berühren  der Tischfläche mit einer Hand wird eine direkte Verbindung mit der darunter liegenden Geometrie hergestellt. Diese zur Tischfläche orthogonale Beziehung soll zu jedem Zeitpunkt der Navigation in diesem Modus gewahrt bleiben. Es leitet sich demnach für die Interaktion mit nur einem Eingabepunkt eine zweidimensionale Translation, nach den in Abschnitt \ref{sec:rst_im_bildraum} beschriebenen Zusammenhängen, ab.
+Die 3D Translation ist ein von den Erkenntnissen der Balloon Selection nach Benko und Feiner \cite{benko:2007} abgeleiteter Ansatz. Durch \linebreak Berühren  der Tischfläche mit einer Hand wird eine direkte Verbindung mit der darunter liegenden Geometrie hergestellt. Diese zur Tischfläche orthogonale Beziehung soll zu jedem Zeitpunkt der Navigation in diesem Modus gewahrt bleiben. Es leitet sich demnach für die Interaktion mit nur einem Eingabepunkt eine zweidimensionale Translation, nach den in Abschnitt \ref{sec:rst_im_bildraum} beschriebenen Zusammenhängen, ab.
 \\\\
 Durch die Verfolgung der Bewegung zweier Eingabepositionen, kann eine dreidimensionale Translation abgebildet werden. Hierzu dient einer der verfolgten Kontakte auf dem Tisch als Primäreingabe. Die Bewegung dieser Position bestimmt weiterhin die x- und y-Translation im Bildraum. Der zweite Kontakt wird im Folgenden als Sekundäreingabe bezeichnet. Die Einordnung in Primär- und Sekundäreingabe kann durch Auswertung der Startzeit der jeweiligen Eingabe festgelegt werden. Durch Distanzveränderung der Sekundäreingabe zur Primäreingabe kann die z-Verschiebung gesteuert werden. Zur Berechnung dieser bieten sich zwei verschiedene Verfahren an.
 \\\\
@@ -52,7 +52,7 @@ Der entstehende Effekt lässt sich mit der Anwendung eines Flaschenzugs vergleic
 \\\\
 $z_t = |G| - |G| * \frac{|V|}{|V'|}$
 \\\\
-Für eine sinnvolle Einbindung beider Ansätze in die Applikation wird die skalierungs-basierte Berechnung von $z_t$ nur angewandt wenn $|G| - |G| * \frac{|V|}{|V'|} > |V| – |V‘|$ gilt. 
+Für eine sinnvolle Einbindung beider Ansätze in die Applikation wird die skalierungs-basierte Berechnung von $z_t$ nur angewandt wenn \linebreak $|G| - |G| * \frac{|V|}{|V'|} > |V| – |V‘|$ gilt. 
 \\\\
 Abbildung \ref{fig:baloon_interaction} visualisiert den Umgang mit diesem Interaktionsmodus. Hierbei wird dem Nutzer eine Visualisierung des manipulierten Auftreffpunktes auf der Geometrie dargestellt, sowie die Verbindungslinie zur darüberliegenden Handposition. Die Gerade zwischen den Eingabepositionen wird ebenfalls visuell referenziert.
 

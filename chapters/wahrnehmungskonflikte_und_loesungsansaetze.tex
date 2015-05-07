@@ -20,7 +20,7 @@ Zum Umgang mit diesem Problem, schlägt Autodesk die Verwendung von \emph{Black 
 	\label{fig:black_bands}
 \end{figure}
 
-Ardouin et al. schlagen die Verwendung von Clipping zur Begrenzung des Blick Frustums vor \cite{ardouin:2011}. Der Schnittbereich der Frusta beider Augen wird nach Ardouin \emph{Stereo Compatible Volume} genannt \cite{ardouin:2011}. In diesem Bereich sei eine konfliktfreie Visualisierung negativ-parallaxer Szeneninhalte sicher. Das Abschneiden der Geometrie außerhalb des Stereo Compatible Volumes (nach Ardouin \emph{Stereo Compatible Volume Clipping}) würde demnach \emph{Frame Cancellation} vermeiden. Abbildung \ref{fig:scvc} zeigt eine Gegenüberstellung der Technik von Ardouin et al. mit \emph{Black-Bands}.
+Ardouin et al. schlagen die Verwendung von Clipping zur Begrenzung des Blick Frustums vor \cite{ardouin:2011}. Der Schnittbereich der Frusta beider Augen wird nach Ardouin \emph{Stereo Compatible Volume} genannt \linebreak \cite{ardouin:2011}. In diesem Bereich sei eine konfliktfreie Visualisierung negativ-parallaxer Szeneninhalte sicher. Das Abschneiden der Geometrie außerhalb des Stereo Compatible Volumes (nach Ardouin \emph{Stereo Compatible Volume Clipping}) würde demnach \emph{Frame Cancellation} vermeiden. Abbildung \ref{fig:scvc} zeigt eine Gegenüberstellung der Technik von Ardouin et al. mit \emph{Black-Bands}.
 
 \begin{figure}
 	\begin{center}
@@ -48,7 +48,7 @@ Giesler et al. entwickeln mit ihrer Technik \emph{Void Shadows} einen Ansatz um 
 \\\\
 Ein weiteres Problem ergibt sich durch das Eindringen der Hand in über dem Tisch liegende Geometrie. Berührt der Anwender die Tischebene zur Interaktion, durchstößt er dabei die auf dem Pfad der Bewegung liegenden negativ-parallaxen Objekte. Während dem Nutzer durch die Disparität der Darstellung eine geometrische Lage der Inhalte oberhalb der Hand suggeriert wird, bleiben diese verdeckt bis die Hand des Nutzers die Eingabefläche verlässt. Folglich wird die Tiefenwahrnehmung durch die widersprüchliche Lage des projizierten Inhalts in Relation zur Hand des Nutzers gestört. Hierdurch wird der visuelle Eindruck wie bei der \emph{Frame Cancellation} (siehe Abschnitt \ref{sec:related_frame_cancellation}) beeinflusst.
 \\\\
-Um dieser Problematik entgegenzuwirken verfolgt das von de la Rivière et al. entwickelte System die Bewegung der Hand Nutzer über dem Tisch \cite{delariviere:2010}. Nähert sich diese der Tischfläche, wird die Szene entlang der Bildschirmnormalen in Blickrichtung des Nutzers verschoben, bis alle virtuellen Inhalte auf oder unter der Projektionsfläche liegen. Sie verhindern somit mögliche Kollisionen der Hand mit allen dargestellten Objekten.
+Um dieser Problematik entgegenzuwirken verfolgt das von de la Rivière et al. entwickelte System die Bewegung der Hand Nutzer über dem Tisch \linebreak \cite{delariviere:2010}. Nähert sich diese der Tischfläche, wird die Szene entlang der Bildschirmnormalen in Blickrichtung des Nutzers verschoben, bis alle virtuellen Inhalte auf oder unter der Projektionsfläche liegen. Sie verhindern somit mögliche Kollisionen der Hand mit allen dargestellten Objekten.
 
 
 \section{Diskussion}
@@ -60,7 +60,7 @@ Für die Lösung des \emph{Frame Cancellation} Problems wurde eine Reihe von Ans
 \\\\
 In einer Studie vergleichen Bruder et al. die Präzision der 3D Selektion bei Verwendung von 2D Touch Eingaben mit der freien Auswahl im dreidimensionalen Raum (\emph{3D mid-air} Selektion) \cite{bruder:2013}. Sie kommen zu dem Schluss, dass durch \emph{3D mid-air} Selektion eine höhere Genauigkeit mit schnelleren Interaktionszeiten für Objekte, welche weiter als 10cm abseits der Bildebene liegen, gegeben ist.
 \\\\
-Die fehlende Effizienz von 2D Touch Eingaben gegenüber \emph{3D mid-air} Techniken könnte durch Ansätze wie \emph{Void Shadows} verbessert werden. Giesler et al. belegen, dass ihre Technik die Präzision und Interaktionszeit, beim Umgang mit vom Bildschirm entfernten Objekten, deutlich verbessert \cite{giesler:2014}. Das Anwendungsszenario beschränkt sich bei ihrer Arbeit auf den Umgang mit positiv-parallaxen Inhalten und sollte für Inhalte oberhalb der Tischebene erweitert werden.
+Die fehlende Effizienz von 2D Touch Eingaben gegenüber \emph{3D mid-air} Techniken könnte durch Ansätze wie \emph{Void Shadows} verbessert werden. Giesler et al. belegen, dass ihre Technik die Präzision und Interaktionszeit, beim Umgang mit vom Bildschirm entfernten Objekten, deutlich verbessert \linebreak \cite{giesler:2014}. Das Anwendungsszenario beschränkt sich bei ihrer Arbeit auf den Umgang mit positiv-parallaxen Inhalten und sollte für Inhalte oberhalb der Tischebene erweitert werden.
 \\\\
 Die im System von de la Rivière et al. integrierte Funktionalität beseitigt das Auftreten von Wahrnehmungskonflikten durch Eingreifen in virtuelle Modelle \cite{delariviere:2010}. Folgende Kritikpunkte scheinen jedoch naheliegend:
 

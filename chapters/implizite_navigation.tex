@@ -34,7 +34,7 @@ Wir definieren \emph{Touch-Kontakte} als Strukturen, welche sowohl den Eingabepu
 \section{Depth-Levelling}
 \label{sec:depth_levelling}
 
-\emph{Depth-Levelling} wird durch das Eingeben zweier \emph{Touch-Kontakte} initiiert. Nach der Schnittberechnung erfolgt die Einordnung dieser in \emph{Primär-} und \emph{Sekundärkontakt}. Der Geometrieschnittpunkt des \emph{Primärkontakts} liegt näher an der Tischebene oder ist weiter über der dieser als der des \emph{Sekundärkontakts}. Ziel des \emph{Depth-Levellings} ist es, den Geometriereferenzpunkt des \emph{Primärkontakts} durch Translation auf die Projektionsebene zu bringen. Um dies zu erreichen wird das Viewing Setup schrittweise entlang der Bildschirmnormalen verschoben. 
+\emph{Depth-Levelling} wird durch das Eingeben zweier \emph{Touch-Kontakte} initiiert. Nach der Schnittberechnung erfolgt die Einordnung dieser in \emph{Primär-} und \linebreak \emph{Sekundärkontakt}. Der Geometrieschnittpunkt des \emph{Primärkontakts} liegt näher an der Tischebene oder ist weiter über der dieser als der des \emph{Sekundärkontakts}. Ziel des \emph{Depth-Levellings} ist es, den Geometriereferenzpunkt des \emph{Primärkontakts} durch Translation auf die Projektionsebene zu bringen. Um dies zu erreichen wird das Viewing Setup schrittweise entlang der Bildschirmnormalen verschoben. 
 \\\\
 Die Schrittweite der Translation wird bei RTS+L durch einen Faktor festgelegt welcher aus der Relation zwischen den \emph{Touch-Kontakten} abgeleitet ist. Ist die Geometrie bereits in relativer Bildschirmnähe, bietet sich die Differenz der Distanz zwischen den Eingabepunkten  seit der letzten Interaktion an. Demnach ist die Levelling-Distanz ($t_L$) gegeben durch:
 \\\\
@@ -46,14 +46,14 @@ Für eine größere Translationsdistanz bei weit von der Bildfläche entfernten 
 \\\\
 $t_L = \left||G| - |G| * \frac{|V_{S_1S_2}|}{|V_{S_1S_2}‘|}\right|$
 \\\\
-,wobei $G$ der Richtungsvektor zwischen dem Geometrieschnittpunkt des Primärkontakts und dessen Punkt auf dem Bildschirm ist.
+,wobei $G$ der Richtungsvektor zwischen dem Geometrieschnittpunkt des \linebreak Primärkontakts und dessen Punkt auf dem Bildschirm ist.
 \\\\
 Sollte die nach einem der genannten Ansätze ermittelte \emph{Levelling}-Distanz größer oder gleich der Länge des Richtungsvektors zwischen dem Geometrie- und dem Bildschirmpunkt des \emph{Primärkontakts} sein, so wird stattdessen eine Translation um diesen Vektor angewandt. Nach dieser Bewegung befindet sich der Geometriereferenzpunkt des \emph{Primärkontakts} auf Tischebene und das \emph{Depth-Levelling} ist beendet.
 
 \section{Rotation-Levelling}
 \label{sec:rotation_levelling}
 
-Das \emph{Rotation-Levelling} schließt sich an die Durchführung des \emph{Depth-Levellings} an. Dieser Vorgang dient der Heranführung des Geometrieschnittpunkts des Sekundärkontakts an die Projektionsebene. Der Modellschnittpunkt des \emph{Primärkontakts} würde durch Translation von der Bildschirmebene entfernt werden. Dies führt zur Aufhebung des durch \emph{Depth-Levelling} erreichten Interaktionsziels. Stattdessen wird eine Rotation um den Bildschirmpunkt des \emph{Primärkontakts} vorgenommen. Des Weiteren muss eine Skalierung in Richtung des selbigen Referenzpunkt erfolgen. Mit diesem Schritt soll gewährleistet werden, dass der Richtungsvektor zwischen Geometrie- und Bildschirmpunkt des \emph{Sekundärkontakts} weiterhin senkrecht auf der Bildebene steht.
+Das \emph{Rotation-Levelling} schließt sich an die Durchführung des \emph{Depth-Levellings} an. Dieser Vorgang dient der Heranführung des Geometrieschnittpunkts des Sekundärkontakts an die Projektionsebene. Der Modellschnittpunkt des \linebreak \emph{Primärkontakts} würde durch Translation von der Bildschirmebene entfernt werden. Dies führt zur Aufhebung des durch \emph{Depth-Levelling} erreichten Interaktionsziels. Stattdessen wird eine Rotation um den Bildschirmpunkt des \emph{Primärkontakts} vorgenommen. Des Weiteren muss eine Skalierung in Richtung des selbigen Referenzpunkt erfolgen. Mit diesem Schritt soll gewährleistet werden, dass der Richtungsvektor zwischen Geometrie- und Bildschirmpunkt des \emph{Sekundärkontakts} weiterhin senkrecht auf der Bildebene steht.
 \\\\
 Die Parametrisierung der Rotation bestimmt sich wie folgt.  Sei $G_2$ der Geometrieschnittpunkt des \emph{Sekundärkontakts} und $S_2$ der zugehörige Punkt der Eingabe auf dem Bildschirm, so bestimmt sich $V_{G_2S_2}$ als Richtungsvektor zwischen $G_2$ und $S_2$. Wie beim \emph{Depth-Levelling} (siehe Abschnitt \ref{sec:depth_levelling}) wird im ersten Schritt der Distanzfaktor ($t_L$) für Annäherung an die Bildebene ermittelt. Danach wird ein Punkt $G_2‘$ berechnet, der die Position von $G_2$ nach Verschiebung um $t_L$ entlang $V_{G_2S_2}$ beschreibt. Als nächstes werden zwei Vektoren $V_{S_1G_2}$ und $V_{S_1G_2‘}$ bestimmt. $V_{S_1G_2}$ ist hierbei der Richtungsvektor zwischen dem zugehörigen Bildschirmpunkt des \emph{Primärkontakts} $S_1$ und $G_2$. $V_{S_1G_2‘}$ ist der Richtungsvektor zwischen $S_1$ und $G_2‘$. Der Rotationswinkel ($\alpha_L$) und die Rotationsachse ($R_L = (x, y, z)$) ergeben sich aus:
 \\\\
