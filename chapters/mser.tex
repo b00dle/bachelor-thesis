@@ -70,7 +70,7 @@ In Abschnitt \ref{subsec:tuio_touch_protokoll} wird eine Übersicht über die mi
 
 TUIO ist ein von Kaltenbrunner et al. entwickeltes Protokoll, welches speziell für den Umgang mit berührbaren Tabletop Eingabeschnittstellen kreiert wurde \cite{kaltenbrunner:2005}. Nach der Auswertung der Eingabepositionen durch den MSER Algorithmus, füllt die Protokollkommunikation verschiedene Stations im Avango Daemon mit den ermittelten Daten. Es existieren zwei Stationstypen. Der Erste hält Informationen über einen jeweiligen Finger. Dies beinhaltet eine normalisierte Fingerposition und die zugewiesene \emph{SessionID}. Ein weiterer Stationstyp ist für die Verwaltung handspezifischer Details verantwortlich. Hierzu gehören die \emph{SessionID} der Hand, eine Liste von \emph{FingerSessionIDs} der zugewiesenen Finger, sowie eine zweidimensionale Orientierung des Armes. Letztere ist durch die Auswertung der handumschließenden Ellipse gegeben. 
 \\\\
-Eine Abbildung dieser Struktur ist nach dem Feldcontainer Konzept, welches Avango bereitstellt, in der Applikation umgesetzt. Für jeden der Stationstypen existiert demnach eine Klasse, welche durch Update der Station aktualisierte Eingabewerte für die Anwendung verfügbar macht. Die nachfolgende Abbildung XX zeigt den Aufbau der Klassen \emph{TUIOFinger} und \emph{TUIOHand}.
+Eine Abbildung dieser Struktur ist nach dem Feldcontainer Konzept, welches Avango bereitstellt, in der Applikation umgesetzt. Für jeden der Stationstypen existiert demnach eine Klasse, welche durch Update der Station aktualisierte Eingabewerte für die Anwendung verfügbar macht.
 
 
 \subsection{Umgang mit Jittering}
