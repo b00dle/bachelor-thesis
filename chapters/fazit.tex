@@ -1,13 +1,9 @@
-Hier wird das Kapitel Fazit beschrieben. Das Kapitel besteht aus den Abschnitten \ref{sec:beitraege} und \ref{sec:weiterentwicklung}.
-
-
-\section{Beiträge dieser Arbeit}
-\label{sec:beitraege}
-
-Hier steht Inhalt zu Beiträgen dieser Arbeit.
-
-
-\section{Vorschläge zur Weiterentwicklung}
-\label{sec:weiterentwicklung}
-
-Hier steht Inhalt zu Vorschlägen zur Weiterentwicklung.
+Im Rahmen dieser Arbeit wurde ein System zur Multi-Touch basierten 3D Navigation für einen immersiven Bildschirmtisch implementiert. Hierzu werden verschiedene Techniken zur kollaborativen Exploration virtueller Welten angeboten. Die zur Steuerung der Applikation benötigten Parameter können in spezifischen Gruppen und getrennt voneinander bedient werden. In zukünftigen Arbeiten sollten die eingebundenen Ansätze in einer umfangreichen Nutzerstudie untersucht werden.
+\\\\
+Entwickelte Modi sind durch die Evaluierung der Bildschirmkontakte vom System unterscheidbar und durch vereinfachte Menüstrukturen vom Anwender zu filter. Die Umsetzung der Erzeugung neuer Menüelemente zur Laufzeit der Applikation konnte im Rahmen der Arbeit lediglich konzeptuell erläutert werden. Es sollte zukünftig eine Implementierung dieser Idee erfolgen.
+\\\\
+\emph{Levelling} erweitert die expliziten Manipulationsstrategien, um den Nutzer beim Umgang mit den dargebotenen Inhalten zu unterstützen. Unterschiedliche Visualisierungen Referenzieren sowohl die Struktur der Eingabe auf dem Tisch, sowie die Interaktionsvorgänge. Hierbei wäre eine Nutzerstudie zur Effizienzbestimmung des Systems und im Hinblick auf weitere Verbesserungen angebracht. Des Weiteren sollte die \emph{Levelling} Technik einer vergleichenden Betrachtung expliziter Gesten unterzogen werden.  
+\\\\
+Auftretenden Eingabekonflikten durch einsetzen des Tisches in einem Mehrbenutzerszenario wird durch Analyse der Struktur des Inputs entgegengewirkt. Durch Einbindung der \emph{See-Through} Technik bei Berührung der Projektionsfläche werden negativ-parallaxe Modellbereiche zur Vermeidung von Konflikten der Tiefenwahrnehmung freigeschnitten. Betrachtet man die Bilder die zur Analyse des MSER-Algorithmus genutzt werden, stellt sich die Frage ob weitere Informationen über die Objekte über dem Tisch extrahiert werden können. Aktuell wird lediglich eine zweidimensionale Orientierung des Armes anhand einer die Wurzel-ER umschließenden Ellipse übermittelt (siehe Kapitel \ref{chp:mser}). Es bleibt zu untersuchen ob sich eine dreidimensionale Relation aus den Disparitäten ableiten ließe. Dies würde zur Untersuchung der Hand-Nutzer Zuweisung beitragen. Des Weiteren würde hierdurch eine Basis für die Bestimmung eines präziseren Clipping Volumens bei der \emph{See-Through} Technik geschaffen werden.
+\\\\
+Die Arbeitsweise der \emph{Touchwerkzeuge} macht die Applikationsstruktur leicht erweiterbar für die Entwicklung zusätzlicher Interaktionsvorgänge welche durch taktile Eingaben gewährleistet werden. Außerdem sind integrierte Navigationstechniken mit einem anderen Input austauschbar. Es wäre demnach interessant zu sehen ob die Techniken auch mit anderen Eingabegeräten sinnvoll in Zusammenhang gebracht werden können.

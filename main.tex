@@ -22,14 +22,23 @@
 
 \usepackage{url}
 
-\usepackage[font=small,labelfont=bf,width=12cm]{caption}
+%------------------------------------------------
+%	DEFINE AND CONFIGURE ENVIRONMENTS
+%------------------------------------------------
 
+% Figure (Latex definition)
+\usepackage[font=small,labelfont=bf,width=12cm]{caption}
 \usepackage{chngcntr}
 \counterwithout{figure}{chapter} 
 
-% Anforderungscounter
+% Anforderung (Own definition)
 \newtheorem{anforderung}{Anforderung}[section]
 \counterwithout{anforderung}{section}
+
+% Hypothese (Own definition)
+\newtheorem{hypothese}{Hypothese}[section]
+\counterwithout{hypothese}{section}
+
 
 %------------------------------------------------
 %	CONFIGURATION FOR COVER PAGE
@@ -86,9 +95,12 @@
 
 \begin{abstract}
 
-Dieses Dokument dient als Muster für die Ausarbeitung einer Diplomarbeit
-am Lehrstuhl für Webtechnologie und Informationssysteme. 
-1 - 2 - 3 Ümläuttest.
+Von einer breiten Masse der Bevölkerung werden Geräte wie Tablets, Smartphones, oder sonstige Touchscreens täglich für unterschiedliche Aufgaben genutzt. Hierbei haben sich verschiedene Gesten zur Kontrolle von zweidimensionalen Inhalten bereits etabliert. Durch diese Erfahrungen erwarten Nutzer intuitiv Eingaben an der Oberfläche eines Bildschirmtisches durchführen zu können.  Auch stereoskopische Bildinhalte sind der Öffentlichkeit, beispielsweise durch 3D Kinofilme, oder 3D Fernseher längst bekannt. Für die Verbindung dieser beiden Techniken gibt es bislang jedoch keine vollständig akzeptierte Lösung.
+\\\\
+Im Rahmen dieser Arbeit wurde ein System zur Multi-Touch basierten Navigation in dreidimensionalen, virtuellen Szenen implementiert. Es wird hierzu eine Reihe von existierenden Manipulationstechniken diskutiert. Die Verwendung des dreidimensionalen Raumes zur Visualisierung von Applikationsinhalten erweitert die für Transformationen parametrisierbaren Freiheitsgrade. Folglich lässt sich eine Steigerung der Komplexität bei Touch Gesten gegenüber bekannten 2D Interaktionen beobachten. Während des Arbeitsprozesses wurde \emph{Levelling} entwickelt um den Nutzer implizit beim Umgang mit der Applikation zu unterstützen. Hierbei werden durch den Anwender Referenzpunkte auf dem Modell definiert und anhand der Technik auf der Bildfläche geebnet. 
+\\\\
+Eine weitere Herausforderung resultiert aus dem Umgang mit stereoskopischen Bildinhalten. Demnach führt das Eindringen der Hand in virtuelle Geometrie oberhalb der Projektionsebene zur Beeinträchtigung der Tiefenwahrnehmung. Die \emph{See-Through} Technik ist entstanden um vom Arm des Nutzers durchdrungene Modellteile freizuschneiden. Auf diese Weise kann dem beschriebenen Wahrnehmungskonflikt entgegengewirkt werden.
+
 
 \end{abstract}
 

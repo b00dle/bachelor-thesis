@@ -22,19 +22,27 @@ Für die Rotation dienen ebenfalls die Vektoren $V$ und $V‘$ zur Berechnung. A
 \section{3D Translation}
 \label{sec:3d_translation}
 
-Die 3D Translation ist einer von den Erkenntnissen der Balloon Selection CITE BALLOON abgeleiteter Ansatz. Durch Berühren  der Tischfläche mit einer Hand wird eine direkte Verbindung mit der darunter liegenden Geometrie hergestellt. Diese zur Tischfläche orthogonale Beziehung soll zu jedem Zeitpunkt der Navigation in diesem Modus gewahrt bleiben. Es leitet sich demnach für die Interaktion mit nur einem Eingabepunkt eine zweidimensionale Translation, nach den in Abschnitt \ref{sec:rst_im_bildraum} beschriebenen Zusammenhängen, ab.
+Die 3D Translation ist einer von den Erkenntnissen der Balloon Selection nach Benko und Feiner \cite{benko:2007} abgeleiteter Ansatz. Durch Berühren  der Tischfläche mit einer Hand wird eine direkte Verbindung mit der darunter liegenden Geometrie hergestellt. Diese zur Tischfläche orthogonale Beziehung soll zu jedem Zeitpunkt der Navigation in diesem Modus gewahrt bleiben. Es leitet sich demnach für die Interaktion mit nur einem Eingabepunkt eine zweidimensionale Translation, nach den in Abschnitt \ref{sec:rst_im_bildraum} beschriebenen Zusammenhängen, ab.
 \\\\
 Durch die Verfolgung der Bewegung zweier Eingabepositionen, kann eine dreidimensionale Translation abgebildet werden. Hierzu dient einer der verfolgten Kontakte auf dem Tisch, als Primäreingabe. Die Bewegung dieser Position bestimmt weiterhin die x- und y-Translation im Bildraum. Der zweite Kontakt wird im Folgenden als Sekundäreingabe bezeichnet. Die Einordnung in Primär- und Sekundäreingabe kann durch Auswertung der Startzeit der jeweiligen Eingabe festgelegt werden. Durch Distanzveränderung der Sekundäreingabe zur Primäreingabe kann die z-Verschiebung gesteuert werden. Zur Berechnung dieser bieten sich zwei verschiedene Verfahren an.
 \\\\
 Wir definieren $P_1(t) = (x_1, y_1)$ und $P_2(t) = (x_2, y_2)$ als die Positionen der Primäreingabe $P_1$ und der Sekundäreingabe $P_2$ auf der Projektionsfläche, zu einer gegebenen Zeit $t$. $P_1(t‘) = (x_1‘, y_1‘)$ und $P_2(t‘) = (x_2‘, y_2‘)$  seien die Position von $P_1$ und $P_2$ zu einer späteren Zeit $t‘$. Weiterhin werden die Richtungsvektoren $V = P_2(t) – P_1(t)$ und $V‘ = P_2(t‘) – P_1(t‘)$ bestimmt. $z_t$ ist die zu ermittelnde z-Translation.
 \\\\
-Das erste Verfahren nutzt die Differenz zwischen $|V|$ und $|V‘|$ zur Bestimmung der z-Translation. Bei Verlängerung der Distanz zwischen den Eingabepunkten, soll der Abstand zur darunter liegenden Geometrie in gleichem Maße abnehmen. Bei Verkürzung der Strecke zwischen $P_1$ und $P_2$ wächst die Distanz zur Geometrie um den Betrag der Differenz. Für ein Viewing Setup, mit Blickrichtung entlang der negativen z-Achse, ergibt sich $z_t = |V| – |V‘|$. Der entstehende Effekt lässt sich mit der Anwendung einer Seilwinde vergleichen. Abbildung XX illustriert diesen Zusammenhang.
+Das erste Verfahren nutzt die Differenz zwischen $|V|$ und $|V‘|$ zur Bestimmung der z-Translation. Bei Verlängerung der Distanz zwischen den Eingabepunkten, soll der Abstand zur darunter liegenden Geometrie in gleichem Maße abnehmen. Bei Verkürzung der Strecke zwischen $P_1$ und $P_2$ wächst die Distanz zur Geometrie um den Betrag der Differenz. Für ein Viewing Setup, mit Blickrichtung entlang der negativen z-Achse, ergibt sich $z_t = |V| – |V‘|$. Der entstehende Effekt lässt sich mit der Anwendung einer Seilwinde vergleichen.
 \\\\
-Im zweiten Verfahren wird das Verhältnis zwischen $|V|$ und $|V‘|$ zur Bestimmung der z-Translation genutzt. Verdoppelt sich beispielsweise die Strecke zwischen $P_1$ und $P_2$, so halbiert sich die Distanz zwischen $P_1$ und der Geometrie. 
+Im zweiten Verfahren wird das Verhältnis zwischen $|V|$ und $|V‘|$ zur Bestimmung der z-Translation genutzt. Verdoppelt sich beispielsweise die Strecke zwischen $P_1$ und $P_2$, so halbiert sich die Distanz zwischen $P_1$ und der Geometrie.
 \\\\
 TODO FORMEL FERTIG
 \\\\
+Abbildung \ref{fig:baloon_interaction} visualisiert den Umgang mit diesem Interaktionsmodus. Hierbei wird dem Nutzer eine Visualisierung des manipulierten Auftreffpunktes auf der Geometrie dargestellt, sowie die Verbindungslinie zur darüberliegenden Handposition. Die Gerade zwischen den Eingabepositionen wird ebenfalls visuell referenziert.
 
+\begin{figure}
+	\begin{center}
+		\includegraphics[width=10cm]{img/baloon_interaction.pdf}
+	\end{center}
+	\caption{Interaktion im 3D Translationsmodus auf Grundlage der Erkenntnisse von Benko und Feiner \cite{benko:2007}. Die roten Pfeile sowie deren Beschriftung sind nicht Teil der Interaktionsvisualisierung}
+	\label{fig:baloon_interaction}
+\end{figure}
 
 \section{3D Rotation}
 \label{sec:3d_rotation}

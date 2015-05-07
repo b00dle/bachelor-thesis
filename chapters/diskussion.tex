@@ -1,13 +1,51 @@
-Hier wird das Kapitel Diskussion beschrieben. Das Kapitel besteht aus den Abschnitten \ref{sec:erfuellung_der_vorgaben}, \ref{sec:beobachtungen} und \ref{sec:hypothesen}.
+In diesem Kapitel soll eine abschließende Diskussion der im Rahmen dieser Arbeit entstandenen Konzepte zur multi-touch-basierten Interaktion mit stereoskopischen Bildinhalten erfolgen. Hierzu soll die Bewertung dieser Ansätze in Abschnitt \ref{sec:anforderungsevaluierung} anhand der in Kapitel \ref{chp:anforderungsanalyse} definierten Anforderungen bemessen werden. Abschließend werden in Abschnitt \ref{sec:hypothesen} einige Hypothesen definiert die aus Beobachtungen während dem Arbeitsprozess resultieren.
 
 
-\section{Erfüllung der Vorgaben}
-\label{sec:erfuellung_der_vorgaben}
+\section{Anforderungsevaluierung}
+\label{sec:anforderungsevaluierung}
 
-Hier steht Inhalt zur Erfüllung der Vorgaben.
+Der Grundstein für die Entwicklung der Touch Navigation ist durch das \emph{MSER Hand und Finger Tracking} gegeben (siehe Kapitel \ref{chp:mser}). Dieses System bietet eine Reihe von Informationen über die Struktur der Eingabe auf dem Bildschirmtisch. Demnach konnte eine Finger-Hand Zuordnung sinnvoll in der Applikationsstruktur abgebildet werden (siehe Kapitel \ref{chp:applikationsstruktur}). Durch Einführen eines Zusatzkriteriums beim Umgang mit Interaktionstechniken, wurde die maximale Anzahl an für die Manipulation zugelassenen Hände auf zwei begrenzt. Eine Hand-Nutzer Zuordnung wird vom aktuellen System nicht unterstützt. In der Applikation kann die einhändige Eingabe zweier Nutzer somit nicht von der beidhändigen eines Nutzers unterschieden werden. Fehleingaben durch gleichzeitiges Interagieren der Nutzer können folglich nicht vollständig vermieden werden. Nach diesem Zusammenhang wird Anforderung \ref{req:mehrbenutzer} maßgeblich berücksichtigt und unterstützt, jedoch nicht vollständig erreicht.
+\\\\
+Clipping von Modellbereichen kann Konflikte der Tiefenwahrnehmung durch Stereoparallaxe vermeiden \cite{ardouin:2011}. Das in Kapitel \ref{chp:freischneiden} beschriebene Konzept zur Beschneidung der virtuellen Geometrie, durch einen perspektivabhängigen Ausschnittzylinder nutzt diese Erkenntnis. Abschnitt \ref{sec:vorteile_und_limitierungen_freischneiden} beschreibt, dass die Wahl und Orientierung des Volumens für diesen Prozess nicht der realen Form des menschlichen Arms entspricht. Hierdurch kann nicht vollständig sichergestellt werden, dass der Anwender negativ-parallaxe Modellbereiche nicht berührt. Entstehende Wahrnehmungskonflikte wurden nach Anforderung \ref{req:wahrnehmungskonflikte} abgeschwächt, konnten jedoch nicht gänzlich vermieden werden.
+\\\\
+Die in die Implementierung der Touch Navigation einbezogenen Techniken ermöglichen dem Nutzer flexiblen Umgang mit virtuellen Inhalten. Hierbei wird die Auswirkungen tiefen-anpassender Gesten durch Distanz zwischen Bildschirm und Geometrie skaliert. Angewendete Transformationen sind sowohl im Nahfeld-Bereich als auch auf große Distanz präzise Möglich, was das System im Kontext des 3D Pitoti Projekts effektiv nutzbar macht. Anforderung \ref{req:interaktionsziele} wurde nach diesen Kriterien erreicht.
+\\\\
+Eingebundene Manipulationsformen orientieren größtenteils am von Hancock et al. vorgestellten Konzept der orthogonalen Verbindung zwischen Geometrie und Bildschirm \cite{hancock:2007,hancock:2009}. Dies unterstützt das Gefühl Modelle direkt zu Berühren. Nutzer können natürliche Bewegungsabfolgen demnach leicht auf angebotene Navigationsstrategien anwenden. In Kapitel \ref{chp:wechsel_zwischen_interaktionstechniken} wird der Wechsel zwischen den Navigationsmodi vorgestellt. Während die einzelnen Gesten auch für unerfahrene Nutzer leicht steuerbar scheinen, ist das Einprägen der Routine zur Auswahl einer Navigationstechnik nach den in Abschnitt \ref{chp:wechsel_zwischen_interaktionstechniken} Zusammenhängen fraglich. Anforderung \ref{req:intuitiv_benutzbar} wurde im Arbeitsprozess maßgeblich berücksichtigt. Es sollte eine Studie zur Bewertung der Touch Navigation hinsichtlich dieser Anforderung durchgeführt werden. 
+\\\\
+Die entwickelten Navigationstechniken ermöglichen die Manipulation aller sechs Freiheitsgrade der Transformation im dreidimensionalen Raum. Durch RST+L bietet die gleichzeitige Kontrolle über x- und y-Translation, z-Rotation und uniforme Skalierung, erweitert durch die implizite Tiefenebnung der \emph{Levelling} Strategie. Mit 3D Rotation sind die Drehungen um x-, y- und z-Achse getrennt zu bedienen. Der 3D Translations-Modus dient zur expliziten Kontrolle der x-, y- und z-Komponente bei der Bewegungstransformation. Die alleinige Skalierungsanpassung ist nach den in Kapitel \ref{chp:implizite_navigation} beschriebenen Voraussetzungen bei RST+L nur nach Erreichung der Interaktionsziels von \emph{Levelling} möglich. Jedoch kann dies durch menüseitige Filterung der Interaktionsmodi von der Anwendung bei Rotation, Skalierung und Translation im Bildraum ausgeschlossen werden. Somit ist der Skalierungsfaktor auch getrennt von anderen Transformationen konfigurierbar. Anforderung \ref{req:getrennte_bedienung_der_dof} gilt demnach als erfüllt.
+\\\\
+RST+L gibt dem Anwender die Möglichkeit bekannte Strategien der 2D Touch Interaktion für die Applikationssteuerung einzusetzen. Währenddessen sorgt die Errechnung von Manipulationsparametern bei der \emph{Levelling} Strategie für Ebnung von visuell relevanten Inhalten. Nach Bruder et al. ist die Analyse und Interaktion mit stereoskopischen Geometrien vor allem durch nahe der Bildebene liegende Objekte gegeben. Die Heranführung der vom Nutzer berührten Modelle an die Projektionsfläche ist folglich als Interaktionsziel zu sehen. Nach diesem Zusammenhang ist von der Erfüllung von Anforderung \ref{req:implizite_kontrolle} auszugehen.
+\\\\
+Zur Visualisierung der Interaktionsprozesse und der taktilen Eingabe wurden verschiedene virtuelle Darstellungen eingeführt. Diese verdeutlichen die Auswirkungen der Interaktion mit der Bildfläche. Sie  verstärken die Verständlichkeit der einzelnen Navigationstechniken und machen fehlerhafte Verarbeitungsergebnisse des MSER Hand und Finger Trackings sichtbar. Somit konnte Anforderung \ref{req:visueller_output} durch das System erreicht werden.
 
 
 \section{Hypothesen}
 \label{sec:hypothesen}
 
-Hier steht Inhalt zu Hypothesen.
+	\begin{hypothese}
+	\label{hyp:fehleingaben}
+		Fehleingaben der Nutzer können nur durch eine Verbesserung der Eingabeanalyse behoben werden.
+	\end{hypothese}
+
+Das MSER Finger und Hand Tracking ist auf die Finger-Hand Zuordnung begrenzt. Dieses Kriterium genügt nicht um Aussagen über die Zugehörigkeit von Eingabepositionen zu einem bestimmten Nutzer zu tätigen. Dadurch können Fehleingaben durch den gleichzeitigen Input mehrerer Anwender von der Applikation nicht vollständig ausgeschlossen werden. Genauer Aufschluss über die Hand-Nutzer Relation ist die Voraussetzung für die Entwicklung von Mechanismen zur Vermeidung beschriebener Mehrbenutzerkonflikte. Die Verbesserung der Eingabeanalyse könnte die Extrahierung dieser Daten ermöglichen.
+
+	\begin{hypothese}
+		\label{hyp:konflikte}
+		Konflikte der Tiefenwahrnehmung können durch Volume Clipping behoben werden.
+	\end{hypothese}
+	
+Auch wenn die für die See-Through Technik verwendete Ausschnittgeometrie nicht dem menschlichen Arm entspricht, hat sich die Strategie dennoch als große Unterstützung für die kollisionsfreie Tiefenwahrnehmung gezeigt. Eine präzisere Abbildung physischer Gegebenheiten über dem Tisch könnte zu einer geeigneten Konstruktion des Clipping Volumens beitragen.
+
+	\begin{hypothese}
+		\label{hyp:unerfahrene}
+		Das entwickelte System ist auch für unerfahrene Nutzer leicht zu bedienen.
+	\end{hypothese}
+	
+Abschnitt \ref{sec:diskussion_mser} spricht einige Probleme an, welche durch die Touch Erkennung entstehen. Die Auswirkung dieser beeinflusst drastisch den Umgang mit der Touch Navigation. Aus diesem Grund wurde im Rahmen dieser Arbeit keine Nutzerstudie durchgeführt. Es ist von einer Verzerrung  der Ergebnisse einer potentiellen Studie auszugehen. Testpersonen hätten die offensichtlichen Fehlfunktionen bei der Eingabeauswertung möglicherweise in die Bewertung des Navigationssystems eingebracht. Dieser Zusammenhang stellt die Nützlichkeit der Studienergebnisse zur Evaluierung der Touch Gesten in Frage. Für valide Ergebnisse sollte demzufolge eine Verbesserung der Input Verarbeitung erfolgen.
+
+	\begin{hypothese}
+		\label{hyp:levelling}
+		Der Umgang mit \emph{Levelling} ist leicht erlernbar und effektiv bei der 3D Multi-Touch Interkation.
+	\end{hypothese}
+	
+Die Berechnung des \emph{Rotation-Levelling} ist gegenüber dem Mapping expliziter Navigationstechniken komplex. Durch den visuellen Effekt der Manipulation wird diese Komplexität jedoch vor dem Nutzer verborgen. Der Zusammenhang die Geometrie durch \emph{Levelling} auf der Bildfläche zu ebnen erscheint schlüssig und leicht zu verinnerlichen. Vor allem im Umgang mit komplexen Oberflächenstrukturen zeigt sich eine automatische Ausrichtungskorrektur anhand nutzerdefinierter Punkte als effektiv.

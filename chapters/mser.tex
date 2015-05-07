@@ -6,8 +6,16 @@ Hierzu wird in dieser Arbeit die von Ewerling et al. entwickelte Finger und Hand
 \section{Maximally Stable Extremal Regions}
 \label{sec:maximally_stable_extremal_regions}
 
-Maximally Stable Extremal Regions ist ein Ansatz entwickelt von Matas et al. zur Auswertung von Bildreihen bei der photogrammetrischen Stereo-Rekonstruktion \cite{matas:2004}. Hierbei sollen vor allem eigenschaftsbezogene Korrespondenzen zwischen Stereobildpaaren mit unterschiedlichem Blickpunkt gefunden werden. Ewerling et al. nutzen diese Erkenntnisse zur Erkennung von Fingerspitzen auf dem Bildschirm \cite{ewerling:2012}. Es erfolgt dabei außerdem eine Zuordnung von Fingern zu Händen durch den \emph{MSER Component Tree}.  Dieses Verfahren ist motiviert durch die visuelle Wahrnehmung des Hand- und Armschattens auf den Bildern, welche durch Tracking mit diffuser Infrarotbeleuchtung erfasst werden (siehe Abbildung XX.).
-\\\\
+\begin{figure}
+	\begin{center}
+		\includegraphics[width=12cm]{img/mser_1.pdf}
+	\end{center}
+	\caption{Das von der Infrarot Kamera eingefangene Rohbild zur Toucherkennung.}
+	\label{fig:mser_1}
+\end{figure}
+
+Maximally Stable Extremal Regions ist ein Ansatz entwickelt von Matas et al. zur Auswertung von Bildreihen bei der photogrammetrischen Stereo-Rekonstruktion \cite{matas:2004}. Hierbei sollen vor allem eigenschaftsbezogene Korrespondenzen zwischen Stereobildpaaren mit unterschiedlichem Blickpunkt gefunden werden. Ewerling et al. nutzen diese Erkenntnisse zur Erkennung von Fingerspitzen auf dem Bildschirm \cite{ewerling:2012}. Es erfolgt dabei außerdem eine Zuordnung von Fingern zu Händen durch den \emph{MSER Component Tree}.  Dieses Verfahren ist motiviert durch die visuelle Wahrnehmung des Hand- und Armschattens auf den Bildern, welche durch Tracking mit diffuser Infrarotbeleuchtung erfasst werden (siehe Abbildung \ref{fig:mser_1}).
+
 Extremal Regions (ER) werden als geschlossene Gruppe von Pixeln bezeichnet, welche entweder eine höhere oder eine niedrigere Farbintensität als umliegende Bildpunkte aufweisen. Die ER $R_i$ ist eine Maximally Stable Extremal Region, wenn $R_i$ eine anderen RE ($R_{i-1}$) umschließt und es eine umschließende ER ($R_{i+1}$) für $R_i$ gibt. Es muss folglich $R_{i-1} \subset R_i \subset R_{i+1}$ gelten. Außerdem muss das Stabilitätskriterium ($s_\Delta(i)$) für $i$ ein lokales Minimum erreichen. Folgende Formel beschreibt die Berechnung von $s_\Delta(i)$:
 \\\\
 $s_\Delta(i) = \frac{ |R_{i+\Delta}| - |R_{i-\Delta}| } { |R_i| }$
@@ -23,7 +31,16 @@ Anhand der ER im Component Tree erfolgt die Ableitung der Fingerpositionen und d
 \item Für alle Kind-Eltern Beziehungen in der Struktur gilt, dass die Kindknoten kleiner sind und eine höhere Farbintensität aufweisen
 \end{enumerate}
 
-Wie in Abbildung XX. zu erkennen, kreieren Objekte in naher Distanz zum Bildschirm eine hellere ER als weiter entfernte. Nach den gelisteten Kriterien können folglich nur Blattknoten des Baumes Fingerspitzen sein. Um eine robuste Analyse zu erreichen, werden vermeidliche Kandidaten in der untersten Ebene des Baumes auf typische visuelle Eigenschaften von Fingeraufsetzpunkten getestet. Hierzu zählen das Prüfen auf runde Form und eine definierte Durchschnittsgröße der erkannten Fingerregion. Die Zuordnung der gefundenen Fingerspitzen zu Händen erfolgt über ein hierarchisches Clustering der Knoten im Component Tree.
+\begin{figure}
+	\begin{center}
+		\includegraphics[width=12cm]{img/mser_2.pdf}
+	\end{center}
+	\caption{Die Helligkeit naher Objekte ist im Infrarot Bild höher als bei weiter entfernten.}
+	\label{fig:mser_2}
+\end{figure}
+
+Wie in Abbildung \ref{fig:mser_2} zu erkennen ist, kreieren Objekte in naher Distanz zum Bildschirm eine hellere ER als weiter entfernte. Nach den gelisteten Kriterien können folglich nur Blattknoten des Baumes Fingerspitzen sein. Um eine robuste Analyse zu erreichen, werden vermeidliche Kandidaten in der untersten Ebene des Baumes auf typische visuelle Eigenschaften von Fingeraufsetzpunkten getestet. Hierzu zählen das Prüfen auf runde Form und eine definierte Durchschnittsgröße der erkannten Fingerregion. Die Zuordnung der gefundenen Fingerspitzen zu Händen erfolgt über ein hierarchisches Clustering der Knoten im Component Tree.
+
 
 \section{Technische Voraussetzungen}
 \label{sec:technische_voraussetzungen}
@@ -37,7 +54,6 @@ Für die technische Umsetzung des in Abschnitt \ref{sec:maximally_stable_extrema
 	\caption{Das im Labor verwendete Hardware Setup zum Tracking von Touch Eingaben.}
 	\label{fig:table_setup}
 \end{figure}
-
 
 Die Genauigkeit des Systems kann durch infrarotes Umgebungslicht, wie beispielsweise Anteile der Sonnenstrahlung, oder andere im Arbeitsraum befindliche Trackingsysteme, gestört werden. Ewerling et al. schlagen daher eine hochfrequente Modulation der Beleuchtung nach Moeller und Kerne vor \cite{ewerling:2012, moeller:2012}.  Nicht-uniforme Lichtintensität entlang der Tischfläche kann ebenfalls zu Problemen bei der Bildanalyse führen. Diese können zwar durch Filterverfahren abgeschwächt, jedoch nicht vollständig beseitigt werden. Eine gleichmäßige Ausleuchtung der Projektionsebene ist demnach ausschlaggebend für eine akkurate Evaluation der Kamerabilder.
 
