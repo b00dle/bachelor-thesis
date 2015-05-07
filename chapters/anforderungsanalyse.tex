@@ -11,7 +11,7 @@ Abschnitt \ref{sec:mehrbenutzer_touch_eingaben} geht hierbei auf die Benutzung d
 		Fehleingaben durch gleichzeitiges Interagieren verschiedener Nutzer mit dem Bildschirmtisch sollen vermieden werden.
 	\end{anforderung}
 
-Die meisten physischen Interaktionswerkzeuge können von nicht mehr als einem Nutzer bedient werden.  Selbst wenn die Auswirkung der Manipulation die ganze Gruppe betrifft, so obliegt der Umgang mit dem Werkzeug einer Person. Im Gegensatz dazu, steht der Projektionstisch allen Nutzern gleichermaßen zur Verfügung. Da eine Vielzahl verschiedener Fingerpositionen auf dem Touchtisch registriert werden können besteht die Möglichkeit, dass der Tisch zur gleichen Zeit von mehreren Personen Eingaben erhält. Diese Eingabekombinationen können leicht zu Manipulationen der Applikation führen, welche vom einzelnen Nutzer nicht beabsichtigt waren und somit vermieden werden sollten.
+Die meisten physischen Interaktionswerkzeuge können von nicht mehr als einem Nutzer bedient werden.  Selbst wenn die Auswirkung der Manipulation die ganze Gruppe betrifft, so obliegt der Umgang mit dem Werkzeug einer Person. Im Gegensatz dazu, steht der Projektionstisch allen Nutzern gleichermaßen zur Verfügung. Da eine Vielzahl verschiedener Fingerpositionen auf dem Touchtisch registriert werden können besteht die Möglichkeit, dass der Tisch zur gleichen Zeit von mehreren Personen Eingaben erhält. Diese Eingabekombinationen können leicht zu Manipulationen der Applikation führen, welche vom einzelnen Nutzer nicht beabsichtigt sind und somit vermieden werden sollten.
 
 
 \section{Tiefenwahrnehmung durch Stereo- und Bewegungsparalaxe}
@@ -22,7 +22,7 @@ Die meisten physischen Interaktionswerkzeuge können von nicht mehr als einem Nu
 		Konflikten der Tiefenwahrnehmung durch Berührung negativ-parallaxer Bildareale sollte entgegen gewirkt werden.
 	\end{anforderung}
 
-Durch Stereoskopische Rendering Verfahren wird die Illusion der dreidimensionalen Lage virtueller Objekte vermittelt. Während die Projektion an eine zweidimensionale Bildebene gebunden ist, erscheinen Applikationsinhalte oftmals abseits der Bildebene. Abschnitt \ref{sec:related_touch_interaktion_stereo} beschriebt einige Konflikte der Tiefenwahrnehmung, die bei der taktilen Interaktion mit stereoskopisch visualisierten Modellen entstehen können. Es gilt geeignete Techniken zu finden, welche dem Nutzer dennoch ein immersives virtuelles Erlebnis gewährleisten.
+Durch Stereoskopische Rendering Verfahren wird die Illusion der dreidimensionalen Lage virtueller Objekte vermittelt. Während die Projektion an eine zweidimensionale Bildebene gebunden ist, erscheinen Applikationsinhalte oftmals abseits der Bildebene. Abschnitt \ref{sec:related_touch_interaktion_stereo} beschreibt einige Konflikte der Tiefenwahrnehmung, die bei der taktilen Interaktion mit stereoskopisch visualisierten Modellen entstehen können. Es gilt geeignete Techniken zu finden, welche dem Nutzer dennoch ein immersives virtuelles Erlebnis gewährleisten.
 
 
 \section{Interaktionsziele}
@@ -44,7 +44,7 @@ Interaktionsziele variieren anhand des Szenarios der Anwendung. Das System wurde
 		Das System soll auch für unerfahrene Nutzer leicht benutzbar sein.
 	\end{anforderung}
 
-Der zweidimensionale Interaktionsraum für Berührungseingaben gegenüber dem dreidimensionalen Applikationsraum unterdefiniert. Dieser Zusammenhang äußert sich in den Freiheitsgraden, welche für die verfügbaren Transformationen parametrisiert werden müssen. Demnach ist beispielsweise die Translation im zweidimensionalen Raum durch x- und y-Verschiebung definiert. Im dreidimensionalen Raum hingegen kommt die z-Komponente als Freiheitsgrad hinzu. Die Bewegung eines Punktes im zweidimensionalen Raum kann somit lediglich zwei der drei Freiheitsgrade der 3D Translation variabel parametrisieren. Die Unterbestimmung kann im Kontext der Berührungseingabe durch zusätzliche Kontaktpunkte gelöst werden. Hierdurch wird die Komplexität resultierender Gesten verglichen zu bekannten 2D Touch Techniken gesteigert. Nach Anforderung \ref{req:intuitiv_benutzbar} sollte jedoch auch dem ungeübten Nutzer ein Umgang mit dem System nach kurzer Einarbeitung möglich sein.
+Der zweidimensionale Interaktionsraum für Berührungseingaben ist gegenüber dem dreidimensionalen Applikationsraum unterdefiniert. Dieser Zusammenhang äußert sich in den Freiheitsgraden, welche für die verfügbaren Transformationen parametrisiert werden müssen. Demnach ist beispielsweise die Translation im zweidimensionalen Raum durch x- und y-Verschiebung definiert. Im dreidimensionalen Raum hingegen kommt die z-Komponente als Freiheitsgrad hinzu. Die Bewegung eines Punktes im zweidimensionalen Raum kann somit lediglich zwei der drei Freiheitsgrade der 3D Translation variabel parametrisieren. Die Unterbestimmung kann im Kontext der Berührungseingabe durch zusätzliche Kontaktpunkte gelöst werden. Hierdurch wird die Komplexität resultierender Gesten verglichen zu bekannten 2D Touch Techniken gesteigert. Nach Anforderung \ref{req:intuitiv_benutzbar} sollte jedoch auch dem ungeübten Nutzer ein Umgang mit dem System nach kurzer Einarbeitung möglich sein.
 
 	\begin{anforderung}
 	\label{req:getrennte_bedienung_der_dof}

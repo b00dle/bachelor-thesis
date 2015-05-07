@@ -15,12 +15,20 @@ Hierzu definiert Abschnitt \ref{sec:ansatz} den konzeptuellen Ansatz. Abschnitt 
 \end{figure}
 
 Wie in Abbildung \ref{fig:show_through_related} veranschaulicht wird nutzen Argelaguet et al. den von ihnen als \emph{Show-Through} bezeichneten Ansatz zur Freilegung verdeckter virtueller Objekte \cite{argelaguet:2010}. Bei perspektivischem Rendering kann der Blick auf verdeckte Objekte in manchen Betrachtungswinkeln auf der Projektionsfläche sichtbar sein. Die Auswahl dieser Geometrie schafft bei durch \emph{Show-Through} nach Argelaguet et al. einen Sichtkanal auf diese Inhalte für jeden Betrachtungswinkel. Im Kontext dieser Arbeit soll durch Anwendung der Technik die von der Hand des Nutzers durchstoßene Geometrie oberhalb der Projektionsfläche entfernt werden.
-\\\\ 
-Wird die Tischoberfläche berührt, so werden negativ parallaxe Modellbereiche zwischen der Eingabeposition und dem Kopf des Nutzers in einem bestimmten Durchmesser ausgeschnitten. Dies erzeugt einen zylinderförmigen Blicktunnel, welcher dem Nutzer freie Sicht bis zu seiner Hand auf der Tischebene bietet. Der Durchmesser des Ausschnittzylinders wird hierbei durch den fingerumschließenden Kreis bestimmt. Abbildung XX illustriert die Anwendung der Technik.
+
+\begin{figure}
+	\begin{center}
+		\includegraphics[width=12cm]{img/see_through_1.pdf}
+	\end{center}
+	\caption{Visualisierung des \emph{See-Through} Konzepts. Die blaue Fläche referenziert das Areal des fingerumschließenden Kreises}
+	\label{fig:see_through_1}
+\end{figure} 
+
+Wird die Tischoberfläche berührt, so werden negativ parallaxe Modellbereiche zwischen der Eingabeposition und dem Kopf des Nutzers in einem bestimmten Durchmesser ausgeschnitten. Dies erzeugt einen zylinderförmigen Blicktunnel, welcher dem Nutzer freie Sicht bis zu seiner Hand auf der Tischebene bietet. Der Durchmesser des Ausschnittzylinders wird hierbei durch den fingerumschließenden Kreis bestimmt. Abbildung \ref{fig:see_through_1} illustriert die Anwendung der Technik.
 \\\\
-In einem Mehrbenutzerszenario wird für jeden Nutzer eine eigene Projektion der virtuellen Szene auf dem Bildschirmtisch erstellt. Dies beeinflusst auch die Perspektive auf von Händen verdeckte, negativ parallaxe, Bereiche der Darstellung. Wird für alle um den Tisch versammelten Personen der gleiche Ausschnittzylinder verwendet, kann ausschließlich für einen der Nutzer eine konfliktfreie Wahrnehmung sichergestellt werden. Abbildung XX verdeutlicht diesen Zusammenhang.
+In einem Mehrbenutzerszenario wird für jeden Nutzer eine eigene Projektion der virtuellen Szene auf dem Bildschirmtisch erstellt. Dies beeinflusst auch die Perspektive auf von Händen verdeckte, negativ parallaxe, Bereiche der Darstellung. Wird für alle um den Tisch versammelten Personen der gleiche Ausschnittzylinder verwendet, kann ausschließlich für einen der Nutzer eine konfliktfreie Wahrnehmung sichergestellt werden.
 \\\\
-Um Wahrnehmungskonflikte für alle Nutzer vermeiden zu können, muss die Orientierung des Ausschnittzylinders nutzerspezifisch angepasst werden. Infolgedessen wird eine eigene Repräsentation des Zylinders für jeden Nutzer bestimmt und auf die jeweilige Projektion angewandt (siehe Abbildung XX).
+Um Wahrnehmungskonflikte für alle Anwender vermeiden zu können, muss die Orientierung des Ausschnittzylinders nutzerspezifisch angepasst werden. Infolgedessen wird eine eigene Repräsentation des Zylinders für jeden Nutzer bestimmt und auf die jeweilige Projektion angewandt.
 
 
 \section{Implementierung}
@@ -38,6 +46,6 @@ Die \emph{See-Through} Technik beeinflusst lediglich die Darstellung der virtuel
 \\\\
 Der Zylinder als Ausschnittgeometrie hat sich in der prototypischen Anwendung als gute Approximation des Nutzerarmes erwiesen. Es ist damit möglich den Großteil verdeckter, negativ parallaxer Modellausschnitte, von der Darstellung auszuschließen.
 \\\\
-Die Ausschnittgeometrie umschließt jedoch ein Volumen, welches nicht exakt die Gliedmaßen des Nutzers repräsentiert. Infolgedessen können Bereiche der Visualisierung beschnitten werden, welche nicht vom Nutzer verdeckt werden und daher noch sichtbar sein sollten. Des Weiteren entspricht die Form und Orientierung der Ausschnittgeometrie nicht der komplexen Form des Arms eines Nutzers. Bei bestimmten Eingaben können somit nicht alle durch Negativparallaxe hervorgerufenen Wahrnehmungskonflikte vermieden werden (siehe Abbildung XX).
+Die Ausschnittgeometrie umschließt jedoch ein Volumen, welches nicht exakt die Gliedmaßen des Nutzers repräsentiert. Infolgedessen können Bereiche der Visualisierung beschnitten werden, welche nicht vom Nutzer verdeckt werden und daher noch sichtbar sein sollten. Des Weiteren entspricht die Form und Orientierung der Ausschnittgeometrie nicht der komplexen Form des Arms eines Nutzers. Bei bestimmten Eingaben können somit nicht alle durch Negativparallaxe hervorgerufenen Wahrnehmungskonflikte vermieden werden.
 \\\\
-Die Initiierung der \emph{See-Through} Technik wird durch das Berühren der Bildschirmoberfläche initiiert. Aus diesem Grund kann das Hineingreifen in Inhalte oberhalb dieser Ebene, ohne Interaktion mit der Tischfläche, nicht verhindert werden.
+Die \emph{See-Through} Technik wird durch das Berühren der Bildschirmoberfläche initiiert. Aus diesem Grund kann das Hineingreifen in Inhalte oberhalb dieser Ebene, ohne Interaktion mit der Tischfläche, nicht verhindert werden.
